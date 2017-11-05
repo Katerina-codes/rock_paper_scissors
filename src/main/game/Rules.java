@@ -9,10 +9,8 @@ public class Rules {
             return findScoreForRock(playerTwoMove);
         } else if (playerOneMove.equals("paper")) {
             return findScoreForPaper(playerTwoMove);
-        } else if (playerOneMove.equals("scissors")) {
-            return findScoreForScissors(playerTwoMove);
         } else {
-            return playerOneMove;
+            return findScoreForScissors(playerTwoMove);
         }
     }
 
