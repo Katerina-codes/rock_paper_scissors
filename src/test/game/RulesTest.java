@@ -1,9 +1,9 @@
 package test.game;
 
 import main.game.Rules;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class RulesTest {
 
@@ -14,5 +14,14 @@ public class RulesTest {
         String result = rules.scoreGame("rock", "rock");
 
         assertEquals("draw", result);
+    }
+
+    @Test
+    public void paperBeatsRock() {
+        Rules rules = new Rules();
+
+        String result = rules.scoreGame("rock", "paper");
+
+        assertEquals("paper", result);
     }
 }
