@@ -33,4 +33,13 @@ public class RulesTest {
 
         assertEquals("rock", result);
     }
+
+    @Test
+    public void scissorsBeatsPaper() {
+        Rules rules = new Rules();
+
+        String result = rules.scoreGame("paper", "scissors");
+
+        assertEquals("scissors", result);
+    }
 }
