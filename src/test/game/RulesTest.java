@@ -30,8 +30,10 @@ public class RulesTest {
         Rules rules = new Rules();
 
         String result = rules.scoreGame("rock", "scissors");
+        String resultTwo = rules.scoreGame("scissors", "rock");
 
         assertEquals("rock", result);
+        assertEquals("rock", resultTwo);
     }
 
     @Test

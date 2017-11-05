@@ -8,6 +8,8 @@ public class Rules {
             return "paper";
         } else if (playerOneMove.equals("paper") && playerTwoMove.equals("scissors")) {
             return "scissors";
+        } else if (playerOneMove.equals("scissors") && playerTwoMove.equals("rock")) {
+            return "rock";
         } else {
             return playerOneMove;
         }
