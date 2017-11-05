@@ -7,8 +7,8 @@ public class Rules {
             return "draw";
         } else if (playerOneMove.equals("rock")) {
             return findScoreForRock(playerTwoMove);
-        } else if (playerOneMove.equals("paper") && playerTwoMove.equals("scissors")) {
-            return "scissors";
+        } else if (playerOneMove.equals("paper")) {
+            return findScoreForPaper(playerTwoMove);
         } else if (playerOneMove.equals("scissors") && playerTwoMove.equals("rock")) {
             return "rock";
         } else {
@@ -24,4 +24,11 @@ public class Rules {
         }
     }
 
+    public String findScoreForPaper(String playerTwoMove) {
+        if (playerTwoMove.equals("scissors")) {
+            return "scissors";
+        } else {
+            return "paper";
+        }
+    }
 }
