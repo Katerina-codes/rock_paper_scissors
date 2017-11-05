@@ -14,4 +14,14 @@ public class CommandLineUI {
     public String askForMove() {
         return "Pick your move by typing 'rock', 'paper' or 'scissors': ";
     }
+
+    public String getMoveFromUser() {
+        String move = null;
+        try {
+            move = input.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return move;
+    }
 }

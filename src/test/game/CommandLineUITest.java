@@ -21,4 +21,14 @@ public class CommandLineUITest {
         assertEquals("Pick your move by typing 'rock', 'paper' or 'scissors': ", ui.askForMove());
     }
 
+    @Test
+    public void getsMoveFromUser() {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        InputStream input = new ByteArrayInputStream("rock".getBytes());
+
+        CommandLineUI ui = new CommandLineUI(output, input);
+
+        assertEquals("rock", ui.getMoveFromUser());
+    }
+
 }
