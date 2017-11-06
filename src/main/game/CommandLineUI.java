@@ -24,4 +24,8 @@ public class CommandLineUI {
         }
         return move;
     }
+
+    public String annouceWinner(String winningMove) {
+        return String.format("%s wins!", winningMove);
+    }
 }
