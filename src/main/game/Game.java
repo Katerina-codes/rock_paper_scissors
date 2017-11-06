@@ -7,5 +7,6 @@ public class Game {
 
     public void runGame() {
         inputOutput.askForMove();
+        inputOutput.getMoveFromUser();
     }
 }

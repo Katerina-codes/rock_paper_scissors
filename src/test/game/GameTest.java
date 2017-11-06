@@ -17,4 +17,15 @@ public class GameTest {
 
         assertTrue(inputOutput.askForMoveWasCalled());
     }
+
+    @Test
+    public void getsMoveFromUser() {
+        FakeCommandLineUI inputOutput = new FakeCommandLineUI();
+
+        Game newGame = new Game(inputOutput);
+
+        newGame.runGame();
+
+        assertTrue(inputOutput.getMoveFromUserWasCalled());
+    }
 }
