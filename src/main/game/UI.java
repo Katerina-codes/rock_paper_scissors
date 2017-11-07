@@ -1,7 +1,7 @@
 package main.game;
 
 public interface UI {
-    public String askForMove();
+    public void askForMove();
     public String getMoveFromUser();
-    boolean askForMoveWasCalled();
+    public void announceWinner(String winningMove);
 }

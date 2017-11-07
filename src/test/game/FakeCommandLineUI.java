@@ -4,20 +4,24 @@ import main.game.UI;
 
 public class FakeCommandLineUI implements UI {
 
-
     private boolean askForMoveWasCalled = false;
     private boolean getMoveFromUserWasCalled = false;
+    private boolean announceWinnerWasCalled = false;
 
     @Override
-    public String askForMove() {
+    public void askForMove() {
         this.askForMoveWasCalled = true;
-        return "Pick your move by typing 'rock', 'paper' or 'scissors': ";
     }
 
     @Override
     public String getMoveFromUser() {
         this.getMoveFromUserWasCalled = true;
-        return null;
+        return "rock";
+    }
+
+    @Override
+    public void announceWinner(String winningMove) {
+        this.announceWinnerWasCalled = true;
     }
 
     public boolean askForMoveWasCalled() {
@@ -26,5 +30,9 @@ public class FakeCommandLineUI implements UI {
 
     public boolean getMoveFromUserWasCalled() {
         return getMoveFromUserWasCalled;
+    }
+
+    public boolean announceWinnerWasCalled() {
+        return announceWinnerWasCalled;
     }
 }

@@ -28,4 +28,15 @@ public class GameTest {
 
         assertTrue(inputOutput.getMoveFromUserWasCalled());
     }
+
+    @Test
+    public void winnerIsAnnounced() {
+        FakeCommandLineUI inputOutput = new FakeCommandLineUI();
+
+        Game newGame = new Game(inputOutput);
+
+        newGame.runGame();
+
+        assertTrue(inputOutput.announceWinnerWasCalled());
+    }
 }

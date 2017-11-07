@@ -7,6 +7,7 @@ public class Game {
 
     public void runGame() {
         inputOutput.askForMove();
-        inputOutput.getMoveFromUser();
+        String playerOneMove = inputOutput.getMoveFromUser();
+        inputOutput.announceWinner(playerOneMove);
     }
 }

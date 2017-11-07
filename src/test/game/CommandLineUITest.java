@@ -7,8 +7,10 @@ import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CommandLineUITest {
 
@@ -17,9 +19,11 @@ public class CommandLineUITest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream input = new ByteArrayInputStream("".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(output, input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("Pick your move by typing 'rock', 'paper' or 'scissors': ", ui.askForMove());
+        ui.askForMove();
+
+        assertTrue(output.toString().contains("Pick your move by typing 'rock', 'paper' or 'scissors': \n"));
     }
 
     @Test
@@ -27,7 +31,7 @@ public class CommandLineUITest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream input = new ByteArrayInputStream("rock".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(output, input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
         assertEquals("rock", ui.getMoveFromUser());
     }
@@ -37,9 +41,11 @@ public class CommandLineUITest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream input = new ByteInputStream();
 
-        CommandLineUI ui = new CommandLineUI(output, input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("rock wins!", ui.annouceWinner("rock"));
+        ui.announceWinner("rock");
+
+        assertTrue(output.toString().contains("rock wins!\n"));
     }
 
 }
