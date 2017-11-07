@@ -48,4 +48,16 @@ public class CommandLineUITest {
         assertTrue(output.toString().contains("rock wins!\n"));
     }
 
+    @Test
+    public void announceDraw() {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        InputStream input = new ByteInputStream();
+
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+
+        ui.announceWinner("draw");
+
+        assertTrue(output.toString().contains("It's a draw!\n"));
+    }
+
 }

@@ -26,6 +26,10 @@ public class CommandLineUI implements UI  {
     }
 
     public void announceWinner(String winningMove) {
-        output.println(String.format("%s wins!", winningMove));
+        if (winningMove.equals("draw")) {
+            output.println("It's a draw!");
+        } else {
+            output.println(String.format("%s wins!", winningMove));
+        }
     }
 }
