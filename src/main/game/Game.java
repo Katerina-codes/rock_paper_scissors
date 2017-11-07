@@ -10,8 +10,9 @@ public class Game {
     }
 
     public void runGame() {
-        inputOutput.askForMove();
+        inputOutput.askForMove("Player one");
         String playerOneMove = inputOutput.getMoveFromUser();
+        inputOutput.askForMove("Player two");
         String playerTwoMove = inputOutput.getMoveFromUser();
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
         inputOutput.announceWinner(winningMove);

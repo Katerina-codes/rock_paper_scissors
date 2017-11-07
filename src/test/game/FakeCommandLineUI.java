@@ -9,7 +9,7 @@ public class FakeCommandLineUI implements UI {
     private String announceWinnerWasCalled = null;
 
     @Override
-    public void askForMove() {
+    public void askForMove(String player) {
         this.askForMoveWasCalled = true;
     }
 

@@ -11,8 +11,8 @@ public class CommandLineUI implements UI  {
         this.input = new BufferedReader(new InputStreamReader(input));
     }
 
-    public void askForMove() {
-        output.println("Pick your move by typing 'rock', 'paper' or 'scissors': ");
+    public void askForMove(String player) {
+        output.println(String.format("%s pick your move by typing 'rock', 'paper' or 'scissors': ", player));
     }
 
     public String getMoveFromUser() {

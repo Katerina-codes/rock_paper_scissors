@@ -21,9 +21,9 @@ public class CommandLineUITest {
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        ui.askForMove();
+        ui.askForMove("Player one" );
 
-        assertTrue(output.toString().contains("Pick your move by typing 'rock', 'paper' or 'scissors': \n"));
+        assertTrue(output.toString().contains("Player one pick your move by typing 'rock', 'paper' or 'scissors': \n"));
     }
 
     @Test
