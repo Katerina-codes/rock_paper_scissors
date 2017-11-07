@@ -6,7 +6,7 @@ public class FakeCommandLineUI implements UI {
 
     private boolean askForMoveWasCalled = false;
     private boolean getMoveFromUserWasCalled = false;
-    private boolean announceWinnerWasCalled = false;
+    private String announceWinnerWasCalled = null;
 
     @Override
     public void askForMove() {
@@ -21,7 +21,11 @@ public class FakeCommandLineUI implements UI {
 
     @Override
     public void announceWinner(String winningMove) {
-        this.announceWinnerWasCalled = true;
+        this.announceWinnerWasCalled = winningMove;
+    }
+
+    public String resultAnnouncedWas() {
+        return this.announceWinnerWasCalled;
     }
 
     public boolean askForMoveWasCalled() {
@@ -33,6 +37,6 @@ public class FakeCommandLineUI implements UI {
     }
 
     public boolean announceWinnerWasCalled() {
-        return announceWinnerWasCalled;
+        return announceWinnerWasCalled != null;
     }
 }

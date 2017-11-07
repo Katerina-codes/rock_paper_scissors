@@ -37,7 +37,7 @@ public class CommandLineUITest {
     }
 
     @Test
-    public void annoucesWinner() {
+    public void annouceWinner() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream input = new ByteInputStream();
 
