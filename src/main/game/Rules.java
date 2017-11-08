@@ -2,9 +2,11 @@ package main.game;
 
 public class Rules {
     private Rock rockMove;
+    private Paper paperMove;
 
-    public Rules(Rock rockMove) {
+    public Rules(Rock rockMove, Paper paperMove) {
         this.rockMove = rockMove;
+        this.paperMove = paperMove;
     }
 
 
@@ -15,17 +17,9 @@ public class Rules {
         } else if (playerOneMove.equals("rock")) {
             return rockMove.findScoreForMove(playerTwoMove);
         } else if (playerOneMove.equals("paper")) {
-            return findScoreForPaper(playerTwoMove);
+            return paperMove.findScoreForMove(playerTwoMove);
         } else {
             return findScoreForScissors(playerTwoMove);
-        }
-    }
-
-    public String findScoreForPaper(String playerTwoMove) {
-        if (playerTwoMove.equals("scissors")) {
-            return "scissors";
-        } else {
-            return "paper";
         }
     }
 
