@@ -3,6 +3,7 @@ package test.game;
 import main.game.Paper;
 import main.game.Rock;
 import main.game.Rules;
+import main.game.Scissors;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,7 +14,8 @@ public class RulesTest {
     public void sameMoveEqualsDraw() {
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
-        Rules rules = new Rules(rockMove, paperMove);
+        Scissors scissorsMove = new Scissors();
+        Rules rules = new Rules(rockMove, paperMove, scissorsMove);
 
         String result = rules.scoreGame("rock", "rock");
 
@@ -24,8 +26,8 @@ public class RulesTest {
     public void paperBeatsRock() {
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
-        Rules rules = new Rules(rockMove, paperMove);
-
+        Scissors scissorsMove = new Scissors();
+        Rules rules = new Rules(rockMove, paperMove, scissorsMove);
 
         String result = rules.scoreGame("rock", "paper");
 
@@ -36,8 +38,8 @@ public class RulesTest {
     public void rockBeatsScissors() {
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
-        Rules rules = new Rules(rockMove, paperMove);
-
+        Scissors scissorsMove = new Scissors();
+        Rules rules = new Rules(rockMove, paperMove, scissorsMove);
 
         String result = rules.scoreGame("rock", "scissors");
         String resultTwo = rules.scoreGame("scissors", "rock");
@@ -50,7 +52,8 @@ public class RulesTest {
     public void scissorsBeatsPaper() {
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
-        Rules rules = new Rules(rockMove, paperMove);
+        Scissors scissorsMove = new Scissors();
+        Rules rules = new Rules(rockMove, paperMove, scissorsMove);
 
         String result = rules.scoreGame("paper", "scissors");
 

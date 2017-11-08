@@ -5,7 +5,8 @@ public class GameRunner {
         CommandLineUI inputOutput = new CommandLineUI(System.out, System.in);
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
-        Rules rules = new Rules(rockMove, paperMove);
+        Scissors scissorsMove = new Scissors();
+        Rules rules = new Rules(rockMove, paperMove, scissorsMove);
         Game newGame = new Game(inputOutput, rules);
         newGame.runGame();
     }

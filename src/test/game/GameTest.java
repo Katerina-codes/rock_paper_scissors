@@ -1,9 +1,6 @@
 package test.game;
 
-import main.game.Game;
-import main.game.Paper;
-import main.game.Rock;
-import main.game.Rules;
+import main.game.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +13,7 @@ public class GameTest {
     private FakeCommandLineUI inputOutput;
     private Rock rockMove;
     private Paper paperMove;
+    private Scissors scissorsMove;
     private Rules gameRules;
     private Game newGame;
 
@@ -25,7 +23,8 @@ public class GameTest {
         inputOutput = new FakeCommandLineUI();
         rockMove = new Rock();
         paperMove = new Paper();
-        gameRules = new Rules(rockMove, paperMove);
+        scissorsMove = new Scissors();
+        gameRules = new Rules(rockMove, paperMove, scissorsMove);
         newGame = new Game(inputOutput, gameRules);
     }
 
