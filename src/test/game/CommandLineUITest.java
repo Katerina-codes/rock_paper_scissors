@@ -1,7 +1,7 @@
 package test.game;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import main.game.CommandLineUI;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -14,13 +14,19 @@ import static org.junit.Assert.assertTrue;
 
 public class CommandLineUITest {
 
+    private ByteArrayOutputStream output;
+    private  InputStream input;
+    private CommandLineUI ui;
+
+    @Before
+    public void setUp() {
+        output = new ByteArrayOutputStream();
+        input = new ByteArrayInputStream("".getBytes());
+        ui = new CommandLineUI(new PrintStream(output), input);
+    }
+
     @Test
     public void asksUserForMove() {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        InputStream input = new ByteArrayInputStream("".getBytes());
-
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
-
         ui.askForMove("Player one" );
 
         assertTrue(output.toString().contains("Player one pick your move by typing 'rock', 'paper' or 'scissors': \n"));
@@ -28,7 +34,6 @@ public class CommandLineUITest {
 
     @Test
     public void getsMoveFromUser() {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
         InputStream input = new ByteArrayInputStream("rock".getBytes());
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
@@ -38,11 +43,6 @@ public class CommandLineUITest {
 
     @Test
     public void annouceWinner() {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        InputStream input = new ByteInputStream();
-
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
-
         ui.announceWinner("rock");
 
         assertTrue(output.toString().contains("rock wins!\n"));
@@ -50,11 +50,6 @@ public class CommandLineUITest {
 
     @Test
     public void announceDraw() {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        InputStream input = new ByteInputStream();
-
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
-
         ui.announceWinner("draw");
 
         assertTrue(output.toString().contains("It's a draw!\n"));

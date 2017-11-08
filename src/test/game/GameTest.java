@@ -21,7 +21,7 @@ public class GameTest {
 
 
     @Before
-    private void setUp() {
+    public void setUp() {
         inputOutput = new FakeCommandLineUI();
         rockMove = new Rock();
         paperMove = new Paper();
