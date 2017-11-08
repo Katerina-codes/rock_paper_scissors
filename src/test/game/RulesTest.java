@@ -1,5 +1,6 @@
 package test.game;
 
+import main.game.Rock;
 import main.game.Rules;
 import org.junit.Test;
 
@@ -9,7 +10,8 @@ public class RulesTest {
 
     @Test
     public void sameMoveEqualsDraw() {
-        Rules rules = new Rules();
+        Rock rockMove = new Rock();
+        Rules rules = new Rules(rockMove);
 
         String result = rules.scoreGame("rock", "rock");
 
@@ -18,7 +20,9 @@ public class RulesTest {
 
     @Test
     public void paperBeatsRock() {
-        Rules rules = new Rules();
+        Rock rockMove = new Rock();
+        Rules rules = new Rules(rockMove);
+
 
         String result = rules.scoreGame("rock", "paper");
 
@@ -27,7 +31,9 @@ public class RulesTest {
 
     @Test
     public void rockBeatsScissors() {
-        Rules rules = new Rules();
+        Rock rockMove = new Rock();
+        Rules rules = new Rules(rockMove);
+
 
         String result = rules.scoreGame("rock", "scissors");
         String resultTwo = rules.scoreGame("scissors", "rock");
@@ -38,7 +44,8 @@ public class RulesTest {
 
     @Test
     public void scissorsBeatsPaper() {
-        Rules rules = new Rules();
+        Rock rockMove = new Rock();
+        Rules rules = new Rules(rockMove);
 
         String result = rules.scoreGame("paper", "scissors");
 

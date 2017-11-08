@@ -1,6 +1,7 @@
 package test.game;
 
 import main.game.Game;
+import main.game.Rock;
 import main.game.Rules;
 import org.junit.Test;
 
@@ -13,7 +14,8 @@ public class GameTest {
     @Test
     public void userIsPromptedForInput() {
         FakeCommandLineUI inputOutput = new FakeCommandLineUI();
-        Rules gameRules = new Rules();
+        Rock rockMove = new Rock();
+        Rules gameRules = new Rules(rockMove);
 
         Game newGame = new Game(inputOutput, gameRules);
 
@@ -25,7 +27,8 @@ public class GameTest {
     @Test
     public void getsMoveFromUser() {
         FakeCommandLineUI inputOutput = new FakeCommandLineUI();
-        Rules gameRules = new Rules();
+        Rock rockMove = new Rock();
+        Rules gameRules = new Rules(rockMove);
 
         Game newGame = new Game(inputOutput, gameRules);
 
@@ -37,7 +40,8 @@ public class GameTest {
     @Test
     public void winnerIsAnnounced() {
         FakeCommandLineUI inputOutput = new FakeCommandLineUI();
-        Rules gameRules = new Rules();
+        Rock rockMove = new Rock();
+        Rules gameRules = new Rules(rockMove);
 
         Game newGame = new Game(inputOutput, gameRules);
 
@@ -49,7 +53,8 @@ public class GameTest {
     @Test
     public void winnerIsFound() {
         FakeCommandLineUI inputOutput = new FakeCommandLineUI();
-        Rules gameRules = new Rules();
+        Rock rockMove = new Rock();
+        Rules gameRules = new Rules(rockMove);
 
         Game newGame = new Game(inputOutput, gameRules);
 
