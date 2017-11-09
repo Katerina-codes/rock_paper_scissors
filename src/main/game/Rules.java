@@ -1,5 +1,7 @@
 package main.game;
 
+import java.util.HashMap;
+
 public class Rules {
     private Rock rockMove;
     private Paper paperMove;
@@ -11,17 +13,16 @@ public class Rules {
         this.scissorsMove = scissorsMove;
     }
 
-
     public String scoreGame(String playerOneMove, String playerTwoMove) {
+        HashMap<String, Move> moves = new HashMap<>();
+        moves.put("rock", rockMove);
+        moves.put("paper", paperMove);
+        moves.put("scissors", scissorsMove);
 
         if (playerOneMove.equals(playerTwoMove)) {
             return "draw";
-        } else if (playerOneMove.equals("rock")) {
-            return rockMove.findScoreForMove(playerTwoMove);
-        } else if (playerOneMove.equals("paper")) {
-            return paperMove.findScoreForMove(playerTwoMove);
         } else {
-            return scissorsMove.findScoreForMove(playerTwoMove);
+            return moves.get(playerOneMove).scoreAgainst(playerTwoMove);
         }
     }
 }

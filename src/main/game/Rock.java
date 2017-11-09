@@ -1,9 +1,9 @@
 package main.game;
 
-public class Rock implements Score {
+public class Rock implements Move {
 
     @Override
-    public String findScoreForMove(String playerTwoMove) {
+    public String scoreAgainst(String playerTwoMove) {
         if (playerTwoMove.equals("paper")) {
             return "paper";
         } else {
