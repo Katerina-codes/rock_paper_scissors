@@ -29,7 +29,10 @@ public class CommandLineUITest {
     public void asksUserForMove() {
         ui.askForMove("Player one" );
 
-        assertTrue(output.toString().contains("Player one pick your move by typing 'rock', 'paper' or 'scissors': \n"));
+        assertTrue(output.toString().contains("Player one pick your move by typing"));
+        assertTrue(output.toString().contains("rock"));
+        assertTrue(output.toString().contains("paper"));
+        assertTrue(output.toString().contains("scissors"));
     }
 
     @Test
@@ -45,14 +48,14 @@ public class CommandLineUITest {
     public void annouceWinner() {
         ui.announceWinner("rock");
 
-        assertTrue(output.toString().contains("rock wins!\n"));
+        assertTrue(output.toString().contains("rock wins!"));
     }
 
     @Test
     public void announceDraw() {
         ui.announceWinner("draw");
 
-        assertTrue(output.toString().contains("It's a draw!\n"));
+        assertTrue(output.toString().contains("It's a draw!"));
     }
 
 }

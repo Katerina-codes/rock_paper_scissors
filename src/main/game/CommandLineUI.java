@@ -12,7 +12,7 @@ public class CommandLineUI implements UI  {
     }
 
     public void askForMove(String player) {
-        output.println(String.format("%s pick your move by typing 'rock', 'paper' or 'scissors': ", player));
+        output.println(String.format("%s pick your move by typing 'rock' 💎, 'paper' 📰 or 'scissors' 💇 : ", player));
     }
 
     public String getMoveFromUser() {
@@ -27,9 +27,9 @@ public class CommandLineUI implements UI  {
 
     public void announceWinner(String winningMove) {
         if (winningMove.equals("draw")) {
-            output.println("It's a draw!");
+            output.println("It's a draw! 😅");
         } else {
-            output.println(String.format("%s wins!", winningMove));
+            output.println(String.format("%s wins! 🙌 ", winningMove));
         }
     }
 }
