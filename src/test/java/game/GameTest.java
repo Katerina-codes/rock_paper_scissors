@@ -1,6 +1,6 @@
-package test.game;
+package game;
 
-import main.game.*;
+import game.*;
 import org.junit.Before;
 import org.junit.Test;
 

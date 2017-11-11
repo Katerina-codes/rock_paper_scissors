@@ -1,6 +1,6 @@
-package test.game;
+package game;
 
-import main.game.CommandLineUI;
+import game.CommandLineUI;
 import org.junit.Before;
 import org.junit.Test;
 

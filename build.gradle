@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+// Where to get dependencies from. JCenter is the largest repository of jars and very reputable
+repositories {
+  jcenter()
+}
+
+// This is where we will declare our dependnecies
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+// Define the main class for the application, which is part of the `application` plugin
+mainClassName = 'game.GameRunner'

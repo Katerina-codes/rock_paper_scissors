@@ -1,6 +1,6 @@
-package test.game;
+package game;
 
-import main.game.UI;
+import game.UI;
 
 public class FakeCommandLineUI implements UI {
 
