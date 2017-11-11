@@ -1,9 +1,9 @@
 package game;
 
-import main.game.Paper;
-import main.game.Rock;
-import main.game.Rules;
-import main.game.Scissors;
+import game.Paper;
+import game.Rock;
+import game.Rules;
+import game.Scissors;
 import org.junit.Before;
 import org.junit.Test;
 
