@@ -1,4 +1,4 @@
-package test.game;
+package game;
 
 import main.game.CommandLineUI;
 import org.junit.Before;
