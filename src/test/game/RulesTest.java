@@ -41,14 +41,14 @@ public class RulesTest {
         String result = rules.scoreGame(ROCK, SCISSORS);
         String resultTwo = rules.scoreGame(SCISSORS, ROCK);
 
-        assertEquals("rock", result);
-        assertEquals("rock", resultTwo);
+        assertEquals(ROCK.getMove(), result);
+        assertEquals(ROCK.getMove(), resultTwo);
     }
 
     @Test
     public void scissorsBeatsPaper() {
         String result = rules.scoreGame(PAPER, SCISSORS);
 
-        assertEquals("scissors", result);
+        assertEquals(SCISSORS.getMove(), result);
     }
 }
