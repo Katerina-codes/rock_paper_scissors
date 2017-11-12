@@ -33,7 +33,7 @@ public class RulesTest {
     public void paperBeatsRock() {
         String result = rules.scoreGame(ROCK, PAPER);
 
-        assertEquals("paper", result);
+        assertEquals(PAPER.getMove(), result);
     }
 
     @Test
