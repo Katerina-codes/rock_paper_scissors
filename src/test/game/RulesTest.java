@@ -1,12 +1,10 @@
 package test.game;
 
-import main.game.Paper;
-import main.game.Rock;
-import main.game.Rules;
-import main.game.Scissors;
+import main.game.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import static main.game.Moves.*;
 import static org.junit.Assert.assertEquals;
 
 public class RulesTest {
@@ -26,22 +24,22 @@ public class RulesTest {
 
     @Test
     public void sameMoveEqualsDraw() {
-        String result = rules.scoreGame("rock", "rock");
+        String result = rules.scoreGame(ROCK, ROCK);
 
         assertEquals("draw", result);
     }
 
     @Test
     public void paperBeatsRock() {
-        String result = rules.scoreGame("rock", "paper");
+        String result = rules.scoreGame(ROCK, PAPER);
 
         assertEquals("paper", result);
     }
 
     @Test
     public void rockBeatsScissors() {
-        String result = rules.scoreGame("rock", "scissors");
-        String resultTwo = rules.scoreGame("scissors", "rock");
+        String result = rules.scoreGame(ROCK, SCISSORS);
+        String resultTwo = rules.scoreGame(SCISSORS, ROCK);
 
         assertEquals("rock", result);
         assertEquals("rock", resultTwo);
@@ -49,7 +47,7 @@ public class RulesTest {
 
     @Test
     public void scissorsBeatsPaper() {
-        String result = rules.scoreGame("paper", "scissors");
+        String result = rules.scoreGame(PAPER, SCISSORS);
 
         assertEquals("scissors", result);
     }
