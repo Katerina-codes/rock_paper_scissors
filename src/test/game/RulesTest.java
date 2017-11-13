@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static main.game.Moves.*;
+import static main.game.Result.DRAW;
 import static org.junit.Assert.assertEquals;
 
 public class RulesTest {
@@ -26,7 +27,7 @@ public class RulesTest {
     public void sameMoveEqualsDraw() {
         String result = rules.scoreGame(ROCK, ROCK);
 
-        assertEquals("draw", result);
+        assertEquals(DRAW.getResult(), result);
     }
 
     @Test
