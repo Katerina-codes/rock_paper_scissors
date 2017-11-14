@@ -15,7 +15,7 @@ public class ComputerPlayerTest {
 
         String[] moves = new String[]{"rock", "paper", "scissors"};
 
-        String move = computer.playRandomMove(moves);
+        String move = computer.playRandomMove();
 
         assertTrue(Arrays.asList(moves).contains(move));
     }
