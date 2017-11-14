@@ -10,6 +10,8 @@ public class Game {
     }
 
     public void runGame() {
+        inputOutput.askUserForGameMode();
+        String gameMode = inputOutput.getGameMode();
         inputOutput.askForMove("Player one");
         String playerOneMove = inputOutput.getMoveFromUser();
         inputOutput.askForMove("Player two");
