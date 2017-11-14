@@ -48,4 +48,14 @@ public class CommandLineUI implements UI  {
             output.println(String.format("%s wins! 🙌 ", winningMove));
         }
     }
+
+    public String getGameMode() {
+        String gameMode = null;
+        try {
+            gameMode = input.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return gameMode;
+    }
 }

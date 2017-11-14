@@ -33,6 +33,15 @@ public class CommandLineUITest {
     }
 
     @Test
+    public void getGameMove() {
+        InputStream input = new ByteArrayInputStream("1".getBytes());
+
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+
+        assertEquals("1", ui.getGameMode());
+    }
+
+    @Test
     public void asksUserForMove() {
         ui.askForMove("Player one" );
 
