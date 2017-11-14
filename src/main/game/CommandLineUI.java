@@ -1,6 +1,9 @@
 package main.game;
 
 import java.io.*;
+import java.util.HashMap;
+
+import static main.game.Moves.*;
 
 public class CommandLineUI implements UI  {
     private final PrintStream output;
@@ -23,6 +26,15 @@ public class CommandLineUI implements UI  {
             e.printStackTrace();
         }
         return move;
+    }
+
+    public static Moves stringToEnum(String playerMove) {
+        HashMap<String, Moves> moves = new HashMap<>();
+        moves.put("rock", ROCK);
+        moves.put("paper", PAPER);
+        moves.put("scissors", SCISSORS);
+
+        return moves.get(playerMove);
     }
 
     public void announceWinner(String winningMove) {

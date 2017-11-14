@@ -1,13 +1,16 @@
 package main.game;
 
+import static main.game.Moves.PAPER;
+import static main.game.Moves.SCISSORS;
+
 public class Paper implements Move {
 
     @Override
-    public String scoreAgainst(String playerTwoMove) {
-        if (playerTwoMove.equals("scissors")) {
-            return "scissors";
+    public String scoreAgainst(Moves playerTwoMove) {
+        if (playerTwoMove.equals(SCISSORS)) {
+            return SCISSORS.getMove();
         } else {
-            return "paper";
+            return PAPER.getMove();
         }
     }
 }

@@ -14,7 +14,9 @@ public class Game {
         String playerOneMove = inputOutput.getMoveFromUser();
         inputOutput.askForMove("Player two");
         String playerTwoMove = inputOutput.getMoveFromUser();
-        String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
+        Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
+        Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
+        String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);
         inputOutput.announceWinner(winningMove);
     }
 }
