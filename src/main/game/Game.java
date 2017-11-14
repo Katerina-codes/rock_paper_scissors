@@ -26,6 +26,7 @@ public class Game {
             inputOutput.askForMove("Player one");
             String playerOneMove = inputOutput.getMoveFromUser();
             String playerTwoMove = ComputerPlayer.playRandomMove();
+            inputOutput.displayComputerMove(playerTwoMove);
             Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
             Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
             String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);

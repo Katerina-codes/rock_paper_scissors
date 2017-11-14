@@ -58,4 +58,8 @@ public class CommandLineUI implements UI  {
         }
         return gameMode;
     }
+
+    public void displayComputerMove(String computerMove) {
+        output.println(computerMove);
+    }
 }

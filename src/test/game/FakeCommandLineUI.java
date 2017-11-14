@@ -9,6 +9,7 @@ public class FakeCommandLineUI implements UI {
     private String announceWinnerWasCalled = null;
     private boolean askUserForGameModeWasCalled = false;
     private boolean getGameModeWasCalled = false;
+    private boolean displayComputerMoveWasCalled;
 
     @Override
     public void askUserForGameMode() {
@@ -37,6 +38,11 @@ public class FakeCommandLineUI implements UI {
         this.announceWinnerWasCalled = winningMove;
     }
 
+    @Override
+    public void displayComputerMove(String playerTwoMove) {
+        this.displayComputerMoveWasCalled = true;
+    }
+
     public boolean askUserForGameModeWasCalled() {
         return askUserForGameModeWasCalled;
     }
@@ -59,5 +65,9 @@ public class FakeCommandLineUI implements UI {
 
     public boolean announceWinnerWasCalled() {
         return announceWinnerWasCalled != null;
+    }
+
+    public boolean DisplayComputerMoveWasCalled() {
+        return displayComputerMoveWasCalled;
     }
 }

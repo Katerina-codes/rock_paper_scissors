@@ -74,4 +74,11 @@ public class CommandLineUITest {
         assertTrue(output.toString().contains("It's a draw!"));
     }
 
+    @Test
+    public void displayComputerMove() {
+        ui.displayComputerMove("rock");
+
+        assertTrue(output.toString().contains("rock"));
+    }
+
 }

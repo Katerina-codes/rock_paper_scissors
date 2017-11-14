@@ -6,4 +6,5 @@ public interface UI {
     public void askForMove(String player);
     public String getMoveFromUser();
     public void announceWinner(String winningMove);
+    public void displayComputerMove(String playerTwoMove);
 }
