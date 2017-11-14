@@ -18,19 +18,21 @@ public class Game {
             String playerOneMove = inputOutput.getMoveFromUser();
             inputOutput.askForMove("Player two");
             String playerTwoMove = inputOutput.getMoveFromUser();
-            Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
-            Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
-            String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);
-            inputOutput.announceWinner(winningMove);
+            findWinner(playerOneMove, playerTwoMove);
         } else {
             inputOutput.askForMove("Player one");
             String playerOneMove = inputOutput.getMoveFromUser();
             String playerTwoMove = ComputerPlayer.playRandomMove();
             inputOutput.displayComputerMove(playerTwoMove);
+            findWinner(playerOneMove, playerTwoMove);
+        }
+    }
+
+        public void findWinner(String playerOneMove, String playerTwoMove) {
             Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
             Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
             String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);
             inputOutput.announceWinner(winningMove);
         }
     }
-}
+
