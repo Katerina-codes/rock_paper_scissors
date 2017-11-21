@@ -8,18 +8,20 @@ import static main.game.Moves.*;
 public class CommandLineUI implements UI {
     private final PrintStream output;
     private final BufferedReader input;
+    private English english;
 
-    public CommandLineUI(PrintStream output, InputStream input) {
+    public CommandLineUI(PrintStream output, InputStream input, English english) {
         this.output = output;
         this.input = new BufferedReader(new InputStreamReader(input));
+        this.english = english;
     }
 
     public void askUserForGameMode() {
-        output.println("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer");
+        output.println(english.promptMode());
     }
 
     public void askForMove(String player) {
-        output.println(String.format("%s pick your move by typing 'rock' 💎, 'paper' 📰 or 'scissors' 💇 : ", player));
+        output.println(english.promptMove(player));
     }
 
     public String getMoveFromUser() {
@@ -43,9 +45,9 @@ public class CommandLineUI implements UI {
 
     public void announceWinner(String winningMove) {
         if (winningMove.equals("draw")) {
-            output.println("It's a draw! 😅");
+            output.println(english.announceDraw());
         } else {
-            output.println(String.format("%s wins! 🙌 ", winningMove));
+            output.println(english.announceWin(winningMove));
         }
     }
 

@@ -1,12 +1,14 @@
 package main.game;
 
 public class Game {
+    private final Language language;
     private Rules rules;
     private UI inputOutput;
 
-    public Game(UI inputOutput, Rules rules) {
+    public Game(UI inputOutput, Rules rules, Language language) {
         this.inputOutput = inputOutput;
         this.rules = rules;
+        this.language = language;
     }
 
     public void runGame() {
@@ -14,11 +16,11 @@ public class Game {
         String gameMode = inputOutput.getGameMode();
 
         if (gameMode.equals("1")) {
-            Moves playerOneMove = getPlayerMove("Player one");
-            Moves playerTwoMove = getPlayerMove("Player two");
+            Moves playerOneMove = getPlayerMove(language.playerOneType());
+            Moves playerTwoMove = getPlayerMove(language.playerTwoType());
             findWinner(playerOneMove, playerTwoMove);
         } else {
-            Moves playerOneMove = getPlayerMove("Player one");
+            Moves playerOneMove = getPlayerMove(language.playerOneType());
             Moves playerTwoMove = ComputerPlayer.playRandomMove();
             inputOutput.displayComputerMove(playerTwoMove.getMove());
             findWinner(playerOneMove, playerTwoMove);

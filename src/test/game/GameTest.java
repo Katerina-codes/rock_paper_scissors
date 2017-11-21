@@ -16,6 +16,7 @@ public class GameTest {
     private Scissors scissorsMove;
     private Rules gameRules;
     private Game newGame;
+    private Language language;
 
 
     @Before
@@ -25,7 +26,8 @@ public class GameTest {
         paperMove = new Paper();
         scissorsMove = new Scissors();
         gameRules = new Rules(rockMove, paperMove, scissorsMove);
-        newGame = new Game(inputOutput, gameRules);
+        language = new English();
+        newGame = new Game(inputOutput, gameRules, language);
     }
 
 

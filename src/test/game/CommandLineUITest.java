@@ -1,6 +1,7 @@
 package test.game;
 
 import main.game.CommandLineUI;
+import main.game.English;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,12 +18,14 @@ public class CommandLineUITest {
     private ByteArrayOutputStream output;
     private  InputStream input;
     private CommandLineUI ui;
+    private English english;
 
     @Before
     public void setUp() {
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
-        ui = new CommandLineUI(new PrintStream(output), input);
+        english = new English();
+        ui = new CommandLineUI(new PrintStream(output), input, english);
     }
 
     @Test
@@ -36,7 +39,7 @@ public class CommandLineUITest {
     public void getGameMove() {
         InputStream input = new ByteArrayInputStream("1".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
 
         assertEquals("1", ui.getGameMode());
     }
@@ -55,7 +58,7 @@ public class CommandLineUITest {
     public void getsMoveFromUser() {
         InputStream input = new ByteArrayInputStream("rock".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
 
         assertEquals("rock", ui.getMoveFromUser());
     }
