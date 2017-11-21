@@ -2,10 +2,12 @@ package main.game;
 
 import java.util.Random;
 
+import static main.game.Moves.*;
+
 public class ComputerPlayer {
 
-    public static String playRandomMove() {
-        String[] moves = new String[]{"rock", "paper", "scissors"};
+    public static Moves playRandomMove() {
+        Moves[] moves = new Moves[]{ROCK, PAPER, SCISSORS};
 
         Random random = new Random();
         int randomMove = random.nextInt(moves.length);

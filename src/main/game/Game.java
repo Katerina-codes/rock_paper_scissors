@@ -22,9 +22,10 @@ public class Game {
         } else {
             inputOutput.askForMove("Player one");
             String playerOneMove = inputOutput.getMoveFromUser();
-            String playerTwoMove = ComputerPlayer.playRandomMove();
-            inputOutput.displayComputerMove(playerTwoMove);
-            findWinner(playerOneMove, playerTwoMove);
+            Moves playerTwoMove = ComputerPlayer.playRandomMove();
+            String playerTwoMoveAsString = playerTwoMove.getMove();
+            inputOutput.displayComputerMove(playerTwoMoveAsString);
+            findWinner(playerOneMove, playerTwoMoveAsString);
         }
     }
 

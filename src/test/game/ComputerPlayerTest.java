@@ -1,10 +1,12 @@
 package test.game;
 
 import main.game.ComputerPlayer;
+import main.game.Moves;
 import org.junit.Test;
 
 import java.util.Arrays;
 
+import static main.game.Moves.*;
 import static org.junit.Assert.assertTrue;
 
 public class ComputerPlayerTest {
@@ -13,9 +15,9 @@ public class ComputerPlayerTest {
     public void playRandomMove() {
         ComputerPlayer computer = new ComputerPlayer();
 
-        String[] moves = new String[]{"rock", "paper", "scissors"};
+        Moves[] moves = new Moves[]{ROCK, PAPER, SCISSORS};
 
-        String move = computer.playRandomMove();
+        Moves move = computer.playRandomMove();
 
         assertTrue(Arrays.asList(moves).contains(move));
     }
