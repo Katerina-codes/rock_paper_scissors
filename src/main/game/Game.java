@@ -10,13 +10,30 @@ public class Game {
     }
 
     public void runGame() {
-        inputOutput.askForMove("Player one");
-        String playerOneMove = inputOutput.getMoveFromUser();
-        inputOutput.askForMove("Player two");
-        String playerTwoMove = inputOutput.getMoveFromUser();
-        Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
-        Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
-        String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);
-        inputOutput.announceWinner(winningMove);
+        inputOutput.askUserForGameMode();
+        String gameMode = inputOutput.getGameMode();
+
+        if (gameMode.equals("1")) {
+            inputOutput.askForMove("Player one");
+            String playerOneMove = inputOutput.getMoveFromUser();
+            inputOutput.askForMove("Player two");
+            String playerTwoMove = inputOutput.getMoveFromUser();
+            findWinner(playerOneMove, playerTwoMove);
+        } else {
+            inputOutput.askForMove("Player one");
+            String playerOneMove = inputOutput.getMoveFromUser();
+            Moves playerTwoMove = ComputerPlayer.playRandomMove();
+            String playerTwoMoveAsString = playerTwoMove.getMove();
+            inputOutput.displayComputerMove(playerTwoMoveAsString);
+            findWinner(playerOneMove, playerTwoMoveAsString);
+        }
     }
-}
+
+        public void findWinner(String playerOneMove, String playerTwoMove) {
+            Moves convertedPlayerOneMove = CommandLineUI.stringToEnum(playerOneMove);
+            Moves convertedPlayerTwoMove = CommandLineUI.stringToEnum(playerTwoMove);
+            String winningMove = rules.scoreGame(convertedPlayerOneMove, convertedPlayerTwoMove);
+            inputOutput.announceWinner(winningMove);
+        }
+    }
+

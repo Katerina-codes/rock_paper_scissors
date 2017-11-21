@@ -28,6 +28,21 @@ public class GameTest {
         newGame = new Game(inputOutput, gameRules);
     }
 
+
+    @Test
+    public void askUserForGameMode() {
+        newGame.runGame();
+
+        assertTrue(inputOutput.askUserForGameModeWasCalled());
+    }
+
+    @Test
+    public void getGameMode() {
+        newGame.runGame();
+
+        assertTrue(inputOutput.getGameModeWasCalled());
+    }
+
     @Test
     public void userIsPromptedForInput() {
         newGame.runGame();

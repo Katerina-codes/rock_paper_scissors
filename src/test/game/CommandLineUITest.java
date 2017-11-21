@@ -26,6 +26,22 @@ public class CommandLineUITest {
     }
 
     @Test
+    public void askUserForGameMode() {
+        ui.askUserForGameMode();
+
+        assertTrue(output.toString().contains("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer"));
+    }
+
+    @Test
+    public void getGameMove() {
+        InputStream input = new ByteArrayInputStream("1".getBytes());
+
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+
+        assertEquals("1", ui.getGameMode());
+    }
+
+    @Test
     public void asksUserForMove() {
         ui.askForMove("Player one" );
 
@@ -56,6 +72,13 @@ public class CommandLineUITest {
         ui.announceWinner("draw");
 
         assertTrue(output.toString().contains("It's a draw!"));
+    }
+
+    @Test
+    public void displayComputerMove() {
+        ui.displayComputerMove("rock");
+
+        assertTrue(output.toString().contains("rock"));
     }
 
 }
