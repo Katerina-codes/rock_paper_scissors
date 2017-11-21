@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import static main.game.Moves.*;
 
-public class CommandLineUI implements UI  {
+public class CommandLineUI implements UI {
     private final PrintStream output;
     private final BufferedReader input;
 
