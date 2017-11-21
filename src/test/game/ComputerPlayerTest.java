@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static main.game.Moves.*;
 import static org.junit.Assert.assertTrue;
 
 public class ComputerPlayerTest {
@@ -15,7 +14,7 @@ public class ComputerPlayerTest {
     public void playRandomMove() {
         ComputerPlayer computer = new ComputerPlayer();
 
-        Moves[] moves = new Moves[]{ROCK, PAPER, SCISSORS};
+        Moves[] moves = Moves.values();
 
         Moves move = computer.playRandomMove();
 
