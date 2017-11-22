@@ -28,4 +28,10 @@ public class GreekTest {
         assertEquals("Εισαγάγετε '1' για Ανθkρώπινα εναντίον Ανθρώπου\nΕισαγάγετε '2' για Ανθρώπινο εναντίον υπολογιστή", greek.promptMode());
     }
 
+    @Test
+    public void promptForMove() {
+        Greek greek = new Greek();
+
+        assertEquals("παίκτης ένα επιλέξτε την κίνηση σας πληκτρολογώντας 'πέτρα' 💎, 'χαρτί' 📰 ή 'ψαλίδι' 💇: ", greek.promptMove("παίκτης ένα"));
+    }
 }

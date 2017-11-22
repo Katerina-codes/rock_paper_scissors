@@ -15,7 +15,7 @@ public class Greek implements Language {
     }
 
     public String promptMove(String player) {
-        return null;
+        return (String.format("%s επιλέξτε την κίνηση σας πληκτρολογώντας 'πέτρα' 💎, 'χαρτί' 📰 ή 'ψαλίδι' 💇: ", player));
     }
 
     public String announceDraw() {
