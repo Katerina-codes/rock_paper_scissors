@@ -3,15 +3,15 @@ package main.game;
 public class Greek implements Language {
 
     public String playerOneType() {
-        return "Paíktis éna";
+        return "παίκτης ένα";
     }
 
     public String playerTwoType() {
-        return "Paíktis dýo";
+        return "παίκτης δύο";
     }
 
     public String promptMode() {
-        return null;
+        return "Εισαγάγετε '1' για Ανθkρώπινα εναντίον Ανθρώπου\nΕισαγάγετε '2' για Ανθρώπινο εναντίον υπολογιστή";
     }
 
     public String promptMove(String player) {

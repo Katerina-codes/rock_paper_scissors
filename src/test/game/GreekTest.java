@@ -11,13 +11,21 @@ public class GreekTest {
     public void promptForPlayerOne() {
         Greek greek = new Greek();
 
-        assertEquals("Paíktis éna", greek.playerOneType());
+        assertEquals("παίκτης ένα", greek.playerOneType());
     }
 
     @Test
     public void promptForPlayerTwo() {
         Greek greek = new Greek();
 
-        assertEquals("Paíktis dýo", greek.playerTwoType());
+        assertEquals("παίκτης δύο", greek.playerTwoType());
     }
+
+    @Test
+    public void promptForGameMode() {
+        Greek greek = new Greek();
+
+        assertEquals("Εισαγάγετε '1' για Ανθkρώπινα εναντίον Ανθρώπου\nΕισαγάγετε '2' για Ανθρώπινο εναντίον υπολογιστή", greek.promptMode());
+    }
+
 }
