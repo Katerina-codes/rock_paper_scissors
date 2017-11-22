@@ -30,6 +30,12 @@ public class GameTest {
         newGame = new Game(inputOutput, gameRules, language);
     }
 
+    @Test
+    public void askUserForLanguageType() {
+        newGame.runGame();
+
+        assertTrue(inputOutput.askUserForLanguageTypeWasCalled());
+    }
 
     @Test
     public void askUserForGameMode() {

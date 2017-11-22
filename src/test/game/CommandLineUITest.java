@@ -29,6 +29,13 @@ public class CommandLineUITest {
     }
 
     @Test
+    public void askUserForLanguageType() {
+        ui.askUserForLanguageType();
+
+        assertTrue(output.toString().contains("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά"));
+    }
+
+    @Test
     public void askUserForGameMode() {
         ui.askUserForGameMode();
 

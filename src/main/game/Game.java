@@ -14,6 +14,7 @@ public class Game {
     public void runGame() {
         inputOutput.askUserForGameMode();
         String gameMode = inputOutput.getGameMode();
+        inputOutput.askUserForLanguageType();
 
         if (gameMode.equals("1")) {
             Moves playerOneMove = getPlayerMove(language.playerOneType());

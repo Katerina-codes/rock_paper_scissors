@@ -1,6 +1,7 @@
 package main.game;
 
 public interface UI {
+    public void askUserForLanguageType();
     public void askUserForGameMode();
     public String getGameMode();
     public void askForMove(String player);

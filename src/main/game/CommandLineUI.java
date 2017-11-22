@@ -16,6 +16,11 @@ public class CommandLineUI implements UI {
         this.english = english;
     }
 
+    @Override
+    public void askUserForLanguageType() {
+        output.println("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά");
+    }
+
     public void askUserForGameMode() {
         output.println(english.promptMode());
     }
