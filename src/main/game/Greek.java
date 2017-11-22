@@ -19,7 +19,7 @@ public class Greek implements Language {
     }
 
     public String announceDraw() {
-        return null;
+        return "είαι ισοπαλί 😅";
     }
 
     public String announceWin(String winningMove) {

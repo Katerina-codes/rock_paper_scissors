@@ -34,4 +34,11 @@ public class GreekTest {
 
         assertEquals("παίκτης ένα επιλέξτε την κίνηση σας πληκτρολογώντας 'πέτρα' 💎, 'χαρτί' 📰 ή 'ψαλίδι' 💇: ", greek.promptMove("παίκτης ένα"));
     }
+
+    @Test
+    public void announceDraw() {
+        Greek greek = new Greek();
+
+        assertEquals("είαι ισοπαλί 😅", greek.announceDraw());
+    }
 }
