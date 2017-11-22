@@ -23,6 +23,6 @@ public class Greek implements Language {
     }
 
     public String announceWin(String winningMove) {
-        return null;
+        return (String.format("%s κερδίζει 🙌 ", winningMove));
     }
 }

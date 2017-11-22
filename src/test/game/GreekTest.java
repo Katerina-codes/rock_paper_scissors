@@ -41,4 +41,11 @@ public class GreekTest {
 
         assertEquals("είαι ισοπαλί 😅", greek.announceDraw());
     }
+
+    @Test
+    public void announceWinner() {
+        Greek greek = new Greek();
+
+        assertEquals("παίκτης ένα κερδίζει 🙌 ", greek.announceWin("παίκτης ένα"));
+    }
 }
