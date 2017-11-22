@@ -17,6 +17,7 @@ public class GameTest {
     private Rules gameRules;
     private Game newGame;
     private Language language;
+    private Greek greekLanguage;
 
 
     @Before
@@ -27,7 +28,8 @@ public class GameTest {
         scissorsMove = new Scissors();
         gameRules = new Rules(rockMove, paperMove, scissorsMove);
         language = new English();
-        newGame = new Game(inputOutput, gameRules, language);
+        greekLanguage = new Greek();
+        newGame = new Game(inputOutput, gameRules, language, greekLanguage);
     }
 
     @Test
@@ -45,8 +47,13 @@ public class GameTest {
     }
 
     @Test
-    public void getLanguage() {
+    public void getEnglishLanguage() {
         assertEquals(language, newGame.selectLanguage("1"));
+    }
+
+    @Test
+    public void getGreekLanguage() {
+        assertEquals(greekLanguage, newGame.selectLanguage("2"));
     }
 
     @Test

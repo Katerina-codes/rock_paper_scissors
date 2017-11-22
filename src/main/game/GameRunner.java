@@ -9,7 +9,8 @@ public class GameRunner {
         Scissors scissorsMove = new Scissors();
         Rules rules = new Rules(rockMove, paperMove, scissorsMove);
         Language language = new English();
-        Game newGame = new Game(inputOutput, rules, language);
+        Greek greekLanguage = new Greek();
+        Game newGame = new Game(inputOutput, rules, language, greekLanguage);
         String gameMode = newGame.getGameMode();
         newGame.runGame(gameMode);
     }

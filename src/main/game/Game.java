@@ -2,13 +2,15 @@ package main.game;
 
 public class Game {
     private final Language language;
+    private final Greek greekLanguage;
     private Rules rules;
     private UI inputOutput;
 
-    public Game(UI inputOutput, Rules rules, Language language) {
+    public Game(UI inputOutput, Rules rules, Language language, Greek greekLanguage) {
         this.inputOutput = inputOutput;
         this.rules = rules;
         this.language = language;
+        this.greekLanguage = greekLanguage;
     }
 
     public String getGameMode() {
@@ -49,6 +51,10 @@ public class Game {
     }
 
     public Language selectLanguage(String userSelection) {
-       return language;
+        if (userSelection.equals("1")) {
+            return language;
+        } else {
+            return greekLanguage;
+        }
     }
 }
