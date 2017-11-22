@@ -36,7 +36,7 @@ public class Game {
             return computerMove;
         }
     }
-    
+
     private Moves getPlayerMove(String player) {
         inputOutput.askForMove(player);
         String playerMove = inputOutput.getMoveFromUser();
@@ -46,5 +46,9 @@ public class Game {
     public void findWinner(Moves playerOneMove, Moves playerTwoMove) {
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
         inputOutput.announceWinner(winningMove);
+    }
+
+    public Language selectLanguage(String userSelection) {
+       return language;
     }
 }

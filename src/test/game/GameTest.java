@@ -45,6 +45,11 @@ public class GameTest {
     }
 
     @Test
+    public void getLanguage() {
+        assertEquals(language, newGame.selectLanguage("1"));
+    }
+
+    @Test
     public void askUserForGameMode() {
         newGame.getGameMode();
 
