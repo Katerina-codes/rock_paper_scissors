@@ -16,8 +16,11 @@ public class Game {
         return inputOutput.getGameMode();
     }
 
-    public void runGame(String gameMode) {
+    public void getLanguageSelection() {
         inputOutput.askUserForLanguageType();
+    }
+
+    public void runGame(String gameMode) {
         Moves playerOneMove = getPlayerMove(language.playerOneType());
         Moves playerTwoMove = getPlayerTwoMove(gameMode);
         findWinner(playerOneMove, playerTwoMove);

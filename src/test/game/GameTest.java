@@ -32,7 +32,7 @@ public class GameTest {
 
     @Test
     public void askUserForLanguageType() {
-        newGame.runGame("1");
+        newGame.getLanguageSelection();
 
         assertTrue(inputOutput.askUserForLanguageTypeWasCalled());
     }
