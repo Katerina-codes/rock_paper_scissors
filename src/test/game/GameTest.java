@@ -32,49 +32,56 @@ public class GameTest {
 
     @Test
     public void askUserForLanguageType() {
-        newGame.runGame();
+        newGame.runGame("1");
 
         assertTrue(inputOutput.askUserForLanguageTypeWasCalled());
     }
 
     @Test
     public void askUserForGameMode() {
-        newGame.runGame();
+        newGame.getGameMode();
 
         assertTrue(inputOutput.askUserForGameModeWasCalled());
     }
 
     @Test
     public void getGameMode() {
-        newGame.runGame();
+        newGame.getGameMode();
 
         assertTrue(inputOutput.getGameModeWasCalled());
     }
 
     @Test
     public void userIsPromptedForInput() {
-        newGame.runGame();
+        newGame.runGame("1");
 
         assertTrue(inputOutput.askForMoveWasCalled());
     }
 
     @Test
     public void getsMoveFromUser() {
-        newGame.runGame();
+        newGame.runGame("1");
 
         assertTrue(inputOutput.getMoveFromUserWasCalled());
     }
 
     @Test
+    public void displayComputerMoveWasCalled() {
+        newGame.runGame("2");
+
+        assertTrue(inputOutput.displayComputerMoveWasCalled());
+    }
+
+    @Test
     public void winnerIsAnnounced() {
-        newGame.runGame();
+        newGame.runGame("1");
 
         assertTrue(inputOutput.announceWinnerWasCalled());
     }
 
     @Test
     public void winnerIsFound() {
-        newGame.runGame();
+        newGame.runGame("1");
 
         assertEquals("draw", inputOutput.resultAnnouncedWas());
     }

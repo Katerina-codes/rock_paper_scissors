@@ -11,23 +11,28 @@ public class Game {
         this.language = language;
     }
 
-    public void runGame() {
+    public String getGameMode() {
         inputOutput.askUserForGameMode();
-        String gameMode = inputOutput.getGameMode();
-        inputOutput.askUserForLanguageType();
-
-        if (gameMode.equals("1")) {
-            Moves playerOneMove = getPlayerMove(language.playerOneType());
-            Moves playerTwoMove = getPlayerMove(language.playerTwoType());
-            findWinner(playerOneMove, playerTwoMove);
-        } else {
-            Moves playerOneMove = getPlayerMove(language.playerOneType());
-            Moves playerTwoMove = ComputerPlayer.playRandomMove();
-            inputOutput.displayComputerMove(playerTwoMove.getMove());
-            findWinner(playerOneMove, playerTwoMove);
-        }
+        return inputOutput.getGameMode();
     }
 
+    public void runGame(String gameMode) {
+        inputOutput.askUserForLanguageType();
+        Moves playerOneMove = getPlayerMove(language.playerOneType());
+        Moves playerTwoMove = getPlayerTwoMove(gameMode);
+        findWinner(playerOneMove, playerTwoMove);
+    }
+
+    public Moves getPlayerTwoMove(String gameMode) {
+        if (gameMode.equals("1")) {
+            return getPlayerMove(language.playerTwoType());
+        } else {
+            Moves computerMove = ComputerPlayer.playRandomMove();
+            inputOutput.displayComputerMove(computerMove.getMove());
+            return computerMove;
+        }
+    }
+    
     private Moves getPlayerMove(String player) {
         inputOutput.askForMove(player);
         String playerMove = inputOutput.getMoveFromUser();
@@ -39,4 +44,3 @@ public class Game {
         inputOutput.announceWinner(winningMove);
     }
 }
-
