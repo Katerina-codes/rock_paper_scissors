@@ -13,4 +13,11 @@ public class GreekTest {
 
         assertEquals("Paíktis éna", greek.playerOneType());
     }
+
+    @Test
+    public void promptForPlayerTwo() {
+        Greek greek = new Greek();
+
+        assertEquals("Paíktis dýo", greek.playerTwoType());
+    }
 }

@@ -7,7 +7,7 @@ public class Greek implements Language {
     }
 
     public String playerTwoType() {
-        return null;
+        return "Paíktis dýo";
     }
 
     public String promptMode() {
