@@ -34,7 +34,14 @@ public class GameTest {
     public void askUserForLanguageType() {
         newGame.getLanguageSelection();
 
-        assertTrue(inputOutput.askUserForLanguageTypeWasCalled());
+        assertTrue(inputOutput.askUserForLanguageSelectionWasCalled());
+    }
+
+    @Test
+    public void getLanguageSelectionFromUser() {
+        newGame.getLanguageSelection();
+
+        assertTrue(inputOutput.getLanguageSelectionWasCalled());
     }
 
     @Test

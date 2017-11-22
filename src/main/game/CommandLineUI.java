@@ -16,9 +16,18 @@ public class CommandLineUI implements UI {
         this.english = english;
     }
 
-    @Override
-    public void askUserForLanguageType() {
+    public void askUserForLanguageSelection() {
         output.println("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά");
+    }
+
+    public String getLanguageSelection() {
+        String languageSelection = null;
+        try {
+            languageSelection = input.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return languageSelection;
     }
 
     public void askUserForGameMode() {

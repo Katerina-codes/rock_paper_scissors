@@ -29,10 +29,19 @@ public class CommandLineUITest {
     }
 
     @Test
-    public void askUserForLanguageType() {
-        ui.askUserForLanguageType();
+    public void askUserForLanguageSelection() {
+        ui.askUserForLanguageSelection();
 
         assertTrue(output.toString().contains("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά"));
+    }
+
+    @Test
+    public void getLanguageSelection() {
+       InputStream input = new ByteArrayInputStream("1".getBytes());
+
+       CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
+
+        assertEquals("1", ui.getLanguageSelection());
     }
 
     @Test

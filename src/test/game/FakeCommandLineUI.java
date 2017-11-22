@@ -10,11 +10,18 @@ public class FakeCommandLineUI implements UI {
     private boolean askUserForGameModeWasCalled = false;
     private boolean getGameModeWasCalled = false;
     private boolean displayComputerMoveWasCalled = false;
-    private boolean askUserForLanguageTypeWasCalled = false;
+    private boolean askUserForLanguageSelectionWasCalled = false;
+    private boolean getLanguageSelectionWasCalled = false;
 
     @Override
-    public void askUserForLanguageType() {
-        this.askUserForLanguageTypeWasCalled = true;
+    public void askUserForLanguageSelection() {
+        this.askUserForLanguageSelectionWasCalled = true;
+    }
+
+    @Override
+    public String getLanguageSelection() {
+        this.getLanguageSelectionWasCalled = true;
+        return "1";
     }
 
     @Override
@@ -53,8 +60,12 @@ public class FakeCommandLineUI implements UI {
         return displayComputerMoveWasCalled;
     }
 
-    public boolean askUserForLanguageTypeWasCalled() {
-        return askUserForLanguageTypeWasCalled;
+    public boolean askUserForLanguageSelectionWasCalled() {
+        return askUserForLanguageSelectionWasCalled;
+    }
+
+    public boolean getLanguageSelectionWasCalled() {
+       return getLanguageSelectionWasCalled;
     }
 
     public boolean askUserForGameModeWasCalled() {

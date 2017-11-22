@@ -17,7 +17,8 @@ public class Game {
     }
 
     public void getLanguageSelection() {
-        inputOutput.askUserForLanguageType();
+        inputOutput.askUserForLanguageSelection();
+        inputOutput.getLanguageSelection();
     }
 
     public void runGame(String gameMode) {
