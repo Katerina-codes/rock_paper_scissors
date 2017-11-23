@@ -3,10 +3,10 @@ package main.game;
 public interface UI {
     public void askUserForLanguageSelection();
     public String getLanguageSelection();
-    public void askUserForGameMode();
+    public void askUserForGameMode(Language language);
     public String getGameMode();
-    public void askForMove(String player);
+    public void askForMove(Language player, String language);
     public String getMoveFromUser();
-    public void announceWinner(String winningMove);
+    public void announceWinner(Language language, String winningMove);
     public void displayComputerMove(String playerTwoMove);
 }

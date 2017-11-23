@@ -24,8 +24,8 @@ public class CommandLineUITest {
     public void setUp() {
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
+        ui = new CommandLineUI(new PrintStream(output), input);
         english = new English();
-        ui = new CommandLineUI(new PrintStream(output), input, english);
     }
 
     @Test
@@ -39,14 +39,14 @@ public class CommandLineUITest {
     public void getLanguageSelection() {
        InputStream input = new ByteArrayInputStream("1".getBytes());
 
-       CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
+       CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
         assertEquals("1", ui.getLanguageSelection());
     }
 
     @Test
     public void askUserForGameMode() {
-        ui.askUserForGameMode();
+        ui.askUserForGameMode(english);
 
         assertTrue(output.toString().contains("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer"));
     }
@@ -55,14 +55,14 @@ public class CommandLineUITest {
     public void getGameMove() {
         InputStream input = new ByteArrayInputStream("1".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
         assertEquals("1", ui.getGameMode());
     }
 
     @Test
     public void asksUserForMove() {
-        ui.askForMove("Player one" );
+        ui.askForMove(english,"Player one");
 
         assertTrue(output.toString().contains("Player one pick your move by typing"));
         assertTrue(output.toString().contains("rock"));
@@ -74,21 +74,21 @@ public class CommandLineUITest {
     public void getsMoveFromUser() {
         InputStream input = new ByteArrayInputStream("rock".getBytes());
 
-        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input, english);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
         assertEquals("rock", ui.getMoveFromUser());
     }
 
     @Test
-    public void annouceWinner() {
-        ui.announceWinner("rock");
+    public void announceWinner() {
+        ui.announceWinner(english, "rock");
 
         assertTrue(output.toString().contains("rock wins!"));
     }
 
     @Test
     public void announceDraw() {
-        ui.announceWinner("draw");
+        ui.announceWinner(english, "draw");
 
         assertTrue(output.toString().contains("It's a draw!"));
     }

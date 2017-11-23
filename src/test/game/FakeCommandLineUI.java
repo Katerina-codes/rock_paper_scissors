@@ -1,5 +1,6 @@
 package test.game;
 
+import main.game.Language;
 import main.game.UI;
 
 public class FakeCommandLineUI implements UI {
@@ -25,7 +26,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public void askUserForGameMode() {
+    public void askUserForGameMode(Language language) {
         this.askUserForGameModeWasCalled = true;
     }
 
@@ -36,7 +37,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public void askForMove(String player) {
+    public void askForMove(Language language, String player) {
         this.askForMoveWasCalled = true;
     }
 
@@ -47,7 +48,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public void announceWinner(String winningMove) {
+    public void announceWinner(Language language, String winningMove) {
         this.announceWinnerWasCalled = winningMove;
     }
 

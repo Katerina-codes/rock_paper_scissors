@@ -16,7 +16,7 @@ public class GameTest {
     private Scissors scissorsMove;
     private Rules gameRules;
     private Game newGame;
-    private Language language;
+    private English englishLanguage;
     private Greek greekLanguage;
 
 
@@ -27,9 +27,9 @@ public class GameTest {
         paperMove = new Paper();
         scissorsMove = new Scissors();
         gameRules = new Rules(rockMove, paperMove, scissorsMove);
-        language = new English();
+        englishLanguage = new English();
         greekLanguage = new Greek();
-        newGame = new Game(inputOutput, gameRules, language, greekLanguage);
+        newGame = new Game(inputOutput, gameRules, englishLanguage, greekLanguage);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class GameTest {
 
     @Test
     public void getEnglishLanguage() {
-        assertEquals(language, newGame.selectLanguage("1"));
+        assertEquals(englishLanguage, newGame.selectLanguage("1"));
     }
 
     @Test
@@ -58,49 +58,49 @@ public class GameTest {
 
     @Test
     public void askUserForGameMode() {
-        newGame.getGameMode();
+        newGame.getGameMode(englishLanguage);
 
         assertTrue(inputOutput.askUserForGameModeWasCalled());
     }
 
     @Test
     public void getGameMode() {
-        newGame.getGameMode();
+        newGame.getGameMode(englishLanguage);
 
         assertTrue(inputOutput.getGameModeWasCalled());
     }
 
     @Test
     public void userIsPromptedForInput() {
-        newGame.runGame("1");
+        newGame.runGame(englishLanguage, "1");
 
         assertTrue(inputOutput.askForMoveWasCalled());
     }
 
     @Test
     public void getsMoveFromUser() {
-        newGame.runGame("1");
+        newGame.runGame(englishLanguage, "1");
 
         assertTrue(inputOutput.getMoveFromUserWasCalled());
     }
 
     @Test
     public void displayComputerMoveWasCalled() {
-        newGame.runGame("2");
+        newGame.runGame(englishLanguage, "2");
 
         assertTrue(inputOutput.displayComputerMoveWasCalled());
     }
 
     @Test
     public void winnerIsAnnounced() {
-        newGame.runGame("1");
+        newGame.runGame(englishLanguage, "1");
 
         assertTrue(inputOutput.announceWinnerWasCalled());
     }
 
     @Test
     public void winnerIsFound() {
-        newGame.runGame("1");
+        newGame.runGame(englishLanguage, "1");
 
         assertEquals("draw", inputOutput.resultAnnouncedWas());
     }

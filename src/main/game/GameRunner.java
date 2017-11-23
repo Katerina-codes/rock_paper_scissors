@@ -2,16 +2,17 @@ package main.game;
 
 public class GameRunner {
     public static void main(String[] args) {
-        English english = new English();
-        CommandLineUI inputOutput = new CommandLineUI(System.out, System.in, english);
+        CommandLineUI inputOutput = new CommandLineUI(System.out, System.in);
         Rock rockMove = new Rock();
         Paper paperMove = new Paper();
         Scissors scissorsMove = new Scissors();
         Rules rules = new Rules(rockMove, paperMove, scissorsMove);
-        Language language = new English();
+        English englishLanguage = new English();
         Greek greekLanguage = new Greek();
-        Game newGame = new Game(inputOutput, rules, language, greekLanguage);
-        String gameMode = newGame.getGameMode();
-        newGame.runGame(gameMode);
+        Game newGame = new Game(inputOutput, rules, englishLanguage, greekLanguage);
+        String languageChoice = newGame.getLanguageSelection();
+        Language language = newGame.selectLanguage(languageChoice);
+        String gameMode = newGame.getGameMode(language);
+        newGame.runGame(language, gameMode);
     }
 }

@@ -8,12 +8,10 @@ import static main.game.Moves.*;
 public class CommandLineUI implements UI {
     private final PrintStream output;
     private final BufferedReader input;
-    private English english;
 
-    public CommandLineUI(PrintStream output, InputStream input, English english) {
+    public CommandLineUI(PrintStream output, InputStream input) {
         this.output = output;
         this.input = new BufferedReader(new InputStreamReader(input));
-        this.english = english;
     }
 
     public void askUserForLanguageSelection() {
@@ -30,12 +28,12 @@ public class CommandLineUI implements UI {
         return languageSelection;
     }
 
-    public void askUserForGameMode() {
-        output.println(english.promptMode());
+    public void askUserForGameMode(Language language) {
+        output.println(language.promptMode());
     }
 
-    public void askForMove(String player) {
-        output.println(english.promptMove(player));
+    public void askForMove(Language language, String player) {
+        output.println(language.promptMove(player));
     }
 
     public String getMoveFromUser() {
@@ -57,11 +55,11 @@ public class CommandLineUI implements UI {
         return moves.get(playerMove);
     }
 
-    public void announceWinner(String winningMove) {
+    public void announceWinner(Language language, String winningMove) {
         if (winningMove.equals("draw")) {
-            output.println(english.announceDraw());
+            output.println(language.announceDraw());
         } else {
-            output.println(english.announceWin(winningMove));
+            output.println(language.announceWin(winningMove));
         }
     }
 
