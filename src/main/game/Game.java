@@ -1,5 +1,7 @@
 package main.game;
 
+import java.util.HashMap;
+
 public class Game {
     private final English english;
     private final Greek greekLanguage;
@@ -59,10 +61,10 @@ public class Game {
     }
 
     public String convertToEnglish(String greekMove) {
-        if (greekMove.equals("πέτρα")) {
-            return "rock";
-        } else {
-            return "paper";
-        }
+        HashMap<String, String> greekToEnglish = new HashMap<>();
+        greekToEnglish.put("πέτρα", "rock");
+        greekToEnglish.put("χαρτί", "paper");
+        greekToEnglish.put("ψαλίδι", "scissors");
+           return greekToEnglish.get(greekMove);
     }
 }

@@ -95,6 +95,11 @@ public class GameTest {
     }
 
     @Test
+    public void convertsScissorsMoveToEnglish() {
+        assertEquals("scissors", newGame.convertToEnglish("ψαλίδι"));
+    }
+
+    @Test
     public void displayComputerMoveWasCalled() {
         newGame.runGame(englishLanguage, "2");
 
