@@ -59,6 +59,10 @@ public class Game {
     }
 
     public String convertToEnglish(String greekMove) {
-       return "rock";
+        if (greekMove.equals("πέτρα")) {
+            return "rock";
+        } else {
+            return "paper";
+        }
     }
 }
