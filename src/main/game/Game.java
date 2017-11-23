@@ -36,20 +36,44 @@ public class Game {
             return getPlayerMove(language, gameMode);
         } else {
             Moves computerMove = ComputerPlayer.playRandomMove();
-            inputOutput.displayComputerMove(computerMove.getMove());
-            return computerMove;
+            if (language.equals(greekLanguage)) {
+                String convertedComputerMove = convertToGreek(computerMove.getMove());
+                inputOutput.displayComputerMove(convertedComputerMove);
+                return computerMove;
+            } else {
+                inputOutput.displayComputerMove(computerMove.getMove());
+                return computerMove;
+            }
         }
     }
+
+    private String convertToGreek(String greekMove) {
+            HashMap<String, String> englishToGreek = new HashMap<>();
+            englishToGreek.put("rock", "πέτρα");
+            englishToGreek.put("paper", "χαρτί");
+            englishToGreek.put("scissors", "ψαλίδι");
+            return englishToGreek.get(greekMove);
+        }
 
     private Moves getPlayerMove(Language language, String playerNumber) {
         inputOutput.askForMove(language, playerNumber);
         String playerMove = inputOutput.getMoveFromUser();
-        return CommandLineUI.stringToEnum(playerMove);
+        if (language.equals(greekLanguage)) {
+            playerMove = convertToEnglish(playerMove);
+            return CommandLineUI.stringToEnum(playerMove);
+        } else {
+            return CommandLineUI.stringToEnum(playerMove);
+        }
     }
 
     public void findWinner(Moves playerOneMove, Moves playerTwoMove, Language language) {
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
-        inputOutput.announceWinner(language, winningMove);
+        if (language.equals(greekLanguage)) {
+        String convertedWinningMove = convertToGreek(winningMove);
+           inputOutput.announceWinner(language, convertedWinningMove);
+        } else {
+           inputOutput.announceWinner(language, winningMove);
+        }
     }
 
     public Language selectLanguage(String userSelection) {
