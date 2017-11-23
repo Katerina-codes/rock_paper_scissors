@@ -85,6 +85,11 @@ public class GameTest {
     }
 
     @Test
+    public void convertsMoveToEnglish() {
+        assertEquals("rock", newGame.convertToEnglish("πέτρα"));
+    }
+
+    @Test
     public void displayComputerMoveWasCalled() {
         newGame.runGame(englishLanguage, "2");
 

@@ -57,4 +57,8 @@ public class Game {
             return greekLanguage;
         }
     }
+
+    public String convertToEnglish(String greekMove) {
+       return "rock";
+    }
 }
