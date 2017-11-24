@@ -47,15 +47,6 @@ public class Game {
         }
     }
 
-    public String convertToGreek(String greekMove) {
-            HashMap<String, String> englishToGreek = new HashMap<>();
-            englishToGreek.put("rock", "πέτρα");
-            englishToGreek.put("paper", "χαρτί");
-            englishToGreek.put("scissors", "ψαλίδι");
-            englishToGreek.put("draw", "είαι ισοπαλί 😅");
-            return englishToGreek.get(greekMove);
-        }
-
     private Moves getPlayerMove(Language language, String playerNumber) {
         inputOutput.askForMove(language, playerNumber);
         String playerMove = inputOutput.getMoveFromUser();
@@ -91,5 +82,14 @@ public class Game {
         greekToEnglish.put("χαρτί", "paper");
         greekToEnglish.put("ψαλίδι", "scissors");
            return greekToEnglish.get(greekMove);
+    }
+
+    public String convertToGreek(String greekMove) {
+        HashMap<String, String> englishToGreek = new HashMap<>();
+        englishToGreek.put("rock", "πέτρα");
+        englishToGreek.put("paper", "χαρτί");
+        englishToGreek.put("scissors", "ψαλίδι");
+        englishToGreek.put("draw", "είαι ισοπαλί 😅");
+        return englishToGreek.get(greekMove);
     }
 }
