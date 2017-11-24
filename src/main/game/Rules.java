@@ -24,7 +24,7 @@ public class Rules {
         if (playerOneMove.equals(playerTwoMove)) {
             return "draw";
         } else {
-            return  moves.get(playerOneMove).scoreAgainst(playerTwoMove);
+            return moves.get(playerOneMove).scoreAgainst(playerTwoMove);
         }
     }
 }

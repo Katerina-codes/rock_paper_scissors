@@ -47,11 +47,12 @@ public class Game {
         }
     }
 
-    private String convertToGreek(String greekMove) {
+    public String convertToGreek(String greekMove) {
             HashMap<String, String> englishToGreek = new HashMap<>();
             englishToGreek.put("rock", "πέτρα");
             englishToGreek.put("paper", "χαρτί");
             englishToGreek.put("scissors", "ψαλίδι");
+            englishToGreek.put("draw", "είαι ισοπαλί 😅");
             return englishToGreek.get(greekMove);
         }
 
