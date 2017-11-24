@@ -1,51 +1,47 @@
 package test.game;
 
 import main.game.English;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class EnglishTest {
 
+    private English englishLanguage;
+
+    @Before
+    public void setUp() {
+        englishLanguage = new English();
+    }
+
     @Test
     public void playerOneType() {
-        English english = new English();
-
-        assertEquals("Player one", english.playerOneType());
+        assertEquals("Player one", englishLanguage.playerOneType());
     }
 
     @Test
     public void playerTwoType() {
-        English english = new English();
-
-        assertEquals("Player two", english.playerTwoType());
+        assertEquals("Player two", englishLanguage.playerTwoType());
     }
 
     @Test
     public void promptForGameMode() {
-        English english = new English();
-
-        assertEquals("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer", english.promptMode());
+        assertEquals("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer", englishLanguage.promptMode());
     }
 
     @Test
     public void promptMove() {
-        English english = new English();
-
-        assertEquals("Player one pick your move by typing 'rock' 💎, 'paper' 📰 or 'scissors' 💇 : ", english.promptMove("Player one"));
+        assertEquals("Player one pick your move by typing 'rock' 💎, 'paper' 📰 or 'scissors' 💇 : ", englishLanguage.promptMove("Player one"));
     }
 
     @Test
     public void announceDraw() {
-        English english = new English();
-
-        assertEquals("It's a draw! 😅", english.announceDraw());
+        assertEquals("It's a draw! 😅", englishLanguage.announceDraw());
     }
 
     @Test
     public void announceWinner() {
-        English english = new English();
-
-        assertEquals("rock wins! 🙌 ", english.announceWin("rock"));
+        assertEquals("rock wins! 🙌 ", englishLanguage.announceWin("rock"));
     }
 }
