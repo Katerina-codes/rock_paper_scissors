@@ -36,17 +36,9 @@ public class Game {
         if (gameMode.equals("1")) {
             return getPlayerMove(language, gameMode);
         } else {
-            Moves computerMove = ComputerPlayer.playRandomMove();
-            if (language.equals(greekLanguage)) {
-                String convertedComputerMove = greekLanguage.convertToGreek(computerMove.getMove());
-                inputOutput.displayComputerMove(convertedComputerMove);
-                return computerMove;
-            } else {
-                inputOutput.displayComputerMove(computerMove.getMove());
-                return computerMove;
+            return ComputerPlayer.playRandomMove();
             }
         }
-    }
 
     private Moves getPlayerMove(Language language, String playerNumber) {
         inputOutput.askForMove(language, playerNumber);

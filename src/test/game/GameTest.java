@@ -100,13 +100,6 @@ public class GameTest {
     }
 
     @Test
-    public void displayComputerMoveWasCalled() {
-        newGame.runGame(englishLanguage, "2");
-
-        assertTrue(inputOutput.displayComputerMoveWasCalled());
-    }
-
-    @Test
     public void winnerIsAnnounced() {
         newGame.runGame(englishLanguage, "1");
 
