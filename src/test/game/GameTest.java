@@ -100,11 +100,6 @@ public class GameTest {
     }
 
     @Test
-    public void convertDrawWhenLanguageisGreek() {
-       assertEquals("είαι ισοπαλί 😅", newGame.convertToGreek( "draw"));
-    }
-
-    @Test
     public void displayComputerMoveWasCalled() {
         newGame.runGame(englishLanguage, "2");
 

@@ -1,5 +1,7 @@
 package main.game;
 
+import java.util.HashMap;
+
 public class Greek implements Language {
 
     public String playerOneType() {
@@ -24,5 +26,14 @@ public class Greek implements Language {
 
     public String announceWin(String winningMove) {
         return (String.format("%s κερδίζει 🙌 ", winningMove));
+    }
+
+    public String convertToGreek(String greekMove) {
+        HashMap<String, String> englishToGreek = new HashMap<>();
+        englishToGreek.put("rock", "πέτρα");
+        englishToGreek.put("paper", "χαρτί");
+        englishToGreek.put("scissors", "ψαλίδι");
+        englishToGreek.put("draw", "είαι ισοπαλί 😅");
+        return englishToGreek.get(greekMove);
     }
 }

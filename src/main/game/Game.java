@@ -38,7 +38,7 @@ public class Game {
         } else {
             Moves computerMove = ComputerPlayer.playRandomMove();
             if (language.equals(greekLanguage)) {
-                String convertedComputerMove = convertToGreek(computerMove.getMove());
+                String convertedComputerMove = greekLanguage.convertToGreek(computerMove.getMove());
                 inputOutput.displayComputerMove(convertedComputerMove);
                 return computerMove;
             } else {
@@ -62,7 +62,7 @@ public class Game {
     public void findWinner(Moves playerOneMove, Moves playerTwoMove, Language language) {
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
         if (language.equals(greekLanguage)) {
-        String convertedWinningMove = convertToGreek(winningMove);
+        String convertedWinningMove = greekLanguage.convertToGreek(winningMove);
            inputOutput.announceWinner(language, convertedWinningMove);
         } else {
            inputOutput.announceWinner(language, winningMove);
@@ -83,14 +83,5 @@ public class Game {
         greekToEnglish.put("χαρτί", "paper");
         greekToEnglish.put("ψαλίδι", "scissors");
            return greekToEnglish.get(greekMove);
-    }
-
-    public String convertToGreek(String greekMove) {
-        HashMap<String, String> englishToGreek = new HashMap<>();
-        englishToGreek.put("rock", "πέτρα");
-        englishToGreek.put("paper", "χαρτί");
-        englishToGreek.put("scissors", "ψαλίδι");
-        englishToGreek.put("draw", "είαι ισοπαλί 😅");
-        return englishToGreek.get(greekMove);
     }
 }
