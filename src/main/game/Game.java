@@ -48,12 +48,7 @@ public class Game {
 
     public void findWinner(Moves playerOneMove, Moves playerTwoMove, Language language) {
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
-        if (language.equals(greekLanguage)) {
-        String convertedWinningMove = greekLanguage.convertToGreek(winningMove);
-           inputOutput.announceWinner(language, convertedWinningMove);
-        } else {
            inputOutput.announceWinner(language, winningMove);
-        }
     }
 
     public Language selectLanguage(String userSelection) {

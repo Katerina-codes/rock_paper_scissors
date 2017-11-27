@@ -25,7 +25,8 @@ public class Greek implements Language {
     }
 
     public String announceWin(String winningMove) {
-        return (String.format("%s κερδίζει 🙌 ", winningMove));
+        String convertedWinningMove = convertToGreek(winningMove);
+        return (String.format("%s κερδίζει 🙌 ", convertedWinningMove));
     }
 
     public String convertToGreek(String greekMove) {
