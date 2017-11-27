@@ -20,9 +20,10 @@ public class Game {
         return inputOutput.getGameMode();
     }
 
-    public String getLanguageSelection() {
+    public Language getLanguageSelection() {
         inputOutput.askUserForLanguageSelection();
-        return inputOutput.getLanguageSelection();
+        String userChoice = inputOutput.getLanguageSelection();
+        return selectLanguage(userChoice);
     }
 
     public void runGame(Language language, String gameMode) {

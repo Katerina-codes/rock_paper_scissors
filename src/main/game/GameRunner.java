@@ -10,9 +10,8 @@ public class GameRunner {
         English englishLanguage = new English();
         Greek greekLanguage = new Greek();
         Game newGame = new Game(inputOutput, rules, englishLanguage, greekLanguage);
-        String languageChoice = newGame.getLanguageSelection();
-        Language language = newGame.selectLanguage(languageChoice);
-        String gameMode = newGame.getGameMode(language);
-        newGame.runGame(language, gameMode);
+        Language languageChoice = newGame.getLanguageSelection();
+        String gameMode = newGame.getGameMode(languageChoice);
+        newGame.runGame(languageChoice, gameMode);
     }
 }
