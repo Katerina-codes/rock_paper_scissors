@@ -14,12 +14,26 @@ public class CommandLineUI implements UI {
         this.input = new BufferedReader(new InputStreamReader(input));
     }
 
-    public void askUserForGameMode() {
-        output.println("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer");
+    public void askUserForLanguageSelection() {
+        output.println("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά");
     }
 
-    public void askForMove(String player) {
-        output.println(String.format("%s pick your move by typing 'rock' 💎, 'paper' 📰 or 'scissors' 💇 : ", player));
+    public String getLanguageSelection() {
+        String languageSelection = null;
+        try {
+            languageSelection = input.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return languageSelection;
+    }
+
+    public void askUserForGameMode(Language language) {
+        output.println(language.promptMode());
+    }
+
+    public void askForMove(Language language, String player) {
+        output.println(language.promptMove(player));
     }
 
     public String getMoveFromUser() {
@@ -41,11 +55,11 @@ public class CommandLineUI implements UI {
         return moves.get(playerMove);
     }
 
-    public void announceWinner(String winningMove) {
+    public void announceWinner(Language language, String winningMove) {
         if (winningMove.equals("draw")) {
-            output.println("It's a draw! 😅");
+            output.println(language.announceDraw());
         } else {
-            output.println(String.format("%s wins! 🙌 ", winningMove));
+            output.println(language.announceWin(winningMove));
         }
     }
 

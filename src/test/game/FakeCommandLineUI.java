@@ -1,5 +1,6 @@
 package test.game;
 
+import main.game.Language;
 import main.game.UI;
 
 public class FakeCommandLineUI implements UI {
@@ -9,10 +10,23 @@ public class FakeCommandLineUI implements UI {
     private String announceWinnerWasCalled = null;
     private boolean askUserForGameModeWasCalled = false;
     private boolean getGameModeWasCalled = false;
-    private boolean displayComputerMoveWasCalled;
+    private boolean displayComputerMoveWasCalled = false;
+    private boolean askUserForLanguageSelectionWasCalled = false;
+    private boolean getLanguageSelectionWasCalled = false;
 
     @Override
-    public void askUserForGameMode() {
+    public void askUserForLanguageSelection() {
+        this.askUserForLanguageSelectionWasCalled = true;
+    }
+
+    @Override
+    public String getLanguageSelection() {
+        this.getLanguageSelectionWasCalled = true;
+        return "1";
+    }
+
+    @Override
+    public void askUserForGameMode(Language language) {
         this.askUserForGameModeWasCalled = true;
     }
 
@@ -23,7 +37,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public void askForMove(String player) {
+    public void askForMove(Language language, String player) {
         this.askForMoveWasCalled = true;
     }
 
@@ -34,13 +48,25 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public void announceWinner(String winningMove) {
+    public void announceWinner(Language language, String winningMove) {
         this.announceWinnerWasCalled = winningMove;
     }
 
     @Override
     public void displayComputerMove(String playerTwoMove) {
         this.displayComputerMoveWasCalled = true;
+    }
+
+    public boolean displayComputerMoveWasCalled() {
+        return displayComputerMoveWasCalled;
+    }
+
+    public boolean askUserForLanguageSelectionWasCalled() {
+        return askUserForLanguageSelectionWasCalled;
+    }
+
+    public boolean getLanguageSelectionWasCalled() {
+       return getLanguageSelectionWasCalled;
     }
 
     public boolean askUserForGameModeWasCalled() {
@@ -65,9 +91,5 @@ public class FakeCommandLineUI implements UI {
 
     public boolean announceWinnerWasCalled() {
         return announceWinnerWasCalled != null;
-    }
-
-    public boolean DisplayComputerMoveWasCalled() {
-        return displayComputerMoveWasCalled;
     }
 }

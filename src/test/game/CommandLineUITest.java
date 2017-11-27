@@ -1,6 +1,7 @@
 package test.game;
 
 import main.game.CommandLineUI;
+import main.game.English;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,17 +18,35 @@ public class CommandLineUITest {
     private ByteArrayOutputStream output;
     private  InputStream input;
     private CommandLineUI ui;
+    private English englishLanguage;
 
     @Before
     public void setUp() {
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
         ui = new CommandLineUI(new PrintStream(output), input);
+        englishLanguage = new English();
+    }
+
+    @Test
+    public void askUserForLanguageSelection() {
+        ui.askUserForLanguageSelection();
+
+        assertTrue(output.toString().contains("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά"));
+    }
+
+    @Test
+    public void getLanguageSelection() {
+       InputStream input = new ByteArrayInputStream("1".getBytes());
+
+       CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+
+        assertEquals("1", ui.getLanguageSelection());
     }
 
     @Test
     public void askUserForGameMode() {
-        ui.askUserForGameMode();
+        ui.askUserForGameMode(englishLanguage);
 
         assertTrue(output.toString().contains("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer"));
     }
@@ -43,7 +62,7 @@ public class CommandLineUITest {
 
     @Test
     public void asksUserForMove() {
-        ui.askForMove("Player one" );
+        ui.askForMove(englishLanguage,"Player one");
 
         assertTrue(output.toString().contains("Player one pick your move by typing"));
         assertTrue(output.toString().contains("rock"));
@@ -61,15 +80,15 @@ public class CommandLineUITest {
     }
 
     @Test
-    public void annouceWinner() {
-        ui.announceWinner("rock");
+    public void announceWinner() {
+        ui.announceWinner(englishLanguage, "rock");
 
         assertTrue(output.toString().contains("rock wins!"));
     }
 
     @Test
     public void announceDraw() {
-        ui.announceWinner("draw");
+        ui.announceWinner(englishLanguage, "draw");
 
         assertTrue(output.toString().contains("It's a draw!"));
     }
