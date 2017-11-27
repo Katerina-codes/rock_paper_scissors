@@ -3,7 +3,7 @@ package main.game;
 import java.util.HashMap;
 
 public class Game {
-    private final English english;
+    private final English englishLanguage;
     private final Greek greekLanguage;
     private Rules rules;
     private UI inputOutput;
@@ -11,7 +11,7 @@ public class Game {
     public Game(UI inputOutput, Rules rules, English englishLanguage, Greek greekLanguage) {
         this.inputOutput = inputOutput;
         this.rules = rules;
-        this.english = englishLanguage;
+        this.englishLanguage = englishLanguage;
         this.greekLanguage = greekLanguage;
     }
 
@@ -71,7 +71,7 @@ public class Game {
 
     public Language selectLanguage(String userSelection) {
         if (userSelection.equals("1")) {
-            return english;
+            return englishLanguage;
         } else {
             return greekLanguage;
         }

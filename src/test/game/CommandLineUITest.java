@@ -18,14 +18,14 @@ public class CommandLineUITest {
     private ByteArrayOutputStream output;
     private  InputStream input;
     private CommandLineUI ui;
-    private English english;
+    private English englishLanguage;
 
     @Before
     public void setUp() {
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
         ui = new CommandLineUI(new PrintStream(output), input);
-        english = new English();
+        englishLanguage = new English();
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CommandLineUITest {
 
     @Test
     public void askUserForGameMode() {
-        ui.askUserForGameMode(english);
+        ui.askUserForGameMode(englishLanguage);
 
         assertTrue(output.toString().contains("Enter '1' for Human vs. Human\nEnter '2' for Human vs. Computer"));
     }
@@ -62,7 +62,7 @@ public class CommandLineUITest {
 
     @Test
     public void asksUserForMove() {
-        ui.askForMove(english,"Player one");
+        ui.askForMove(englishLanguage,"Player one");
 
         assertTrue(output.toString().contains("Player one pick your move by typing"));
         assertTrue(output.toString().contains("rock"));
@@ -81,14 +81,14 @@ public class CommandLineUITest {
 
     @Test
     public void announceWinner() {
-        ui.announceWinner(english, "rock");
+        ui.announceWinner(englishLanguage, "rock");
 
         assertTrue(output.toString().contains("rock wins!"));
     }
 
     @Test
     public void announceDraw() {
-        ui.announceWinner(english, "draw");
+        ui.announceWinner(englishLanguage, "draw");
 
         assertTrue(output.toString().contains("It's a draw!"));
     }
