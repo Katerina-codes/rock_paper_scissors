@@ -44,7 +44,7 @@ public class Game {
         inputOutput.askForMove(language, playerNumber);
         String playerMove = inputOutput.getMoveFromUser();
         if (language.equals(greekLanguage)) {
-            playerMove = convertToEnglish(playerMove);
+            playerMove = englishLanguage.convertToEnglish(playerMove);
             return CommandLineUI.stringToEnum(playerMove);
         } else {
             return CommandLineUI.stringToEnum(playerMove);
@@ -67,13 +67,5 @@ public class Game {
         } else {
             return greekLanguage;
         }
-    }
-
-    public String convertToEnglish(String greekMove) {
-        HashMap<String, String> greekToEnglish = new HashMap<>();
-        greekToEnglish.put("πέτρα", "rock");
-        greekToEnglish.put("χαρτί", "paper");
-        greekToEnglish.put("ψαλίδι", "scissors");
-           return greekToEnglish.get(greekMove);
     }
 }

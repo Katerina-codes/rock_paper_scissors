@@ -85,21 +85,6 @@ public class GameTest {
     }
 
     @Test
-    public void convertsRockMoveToEnglish() {
-        assertEquals("rock", newGame.convertToEnglish("πέτρα"));
-    }
-
-    @Test
-    public void convertsPaperMoveToEnglish() {
-        assertEquals("paper", newGame.convertToEnglish("χαρτί"));
-    }
-
-    @Test
-    public void convertsScissorsMoveToEnglish() {
-        assertEquals("scissors", newGame.convertToEnglish("ψαλίδι"));
-    }
-
-    @Test
     public void winnerIsAnnounced() {
         newGame.runGame(englishLanguage, "1");
 

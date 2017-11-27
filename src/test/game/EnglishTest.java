@@ -44,4 +44,19 @@ public class EnglishTest {
     public void announceWinner() {
         assertEquals("rock wins! 🙌 ", englishLanguage.announceWin("rock"));
     }
+
+    @Test
+    public void convertsRockMoveToEnglish() {
+        assertEquals("rock", englishLanguage.convertToEnglish("πέτρα"));
+    }
+
+    @Test
+    public void convertsPaperMoveToEnglish() {
+        assertEquals("paper", englishLanguage.convertToEnglish("χαρτί"));
+    }
+
+    @Test
+    public void convertsScissorsMoveToEnglish() {
+        assertEquals("scissors", englishLanguage.convertToEnglish("ψαλίδι"));
+    }
 }
