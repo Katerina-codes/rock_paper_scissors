@@ -43,12 +43,7 @@ public class Game {
     private Moves getPlayerMove(Language language, String playerNumber) {
         inputOutput.askForMove(language, playerNumber);
         String playerMove = inputOutput.getMoveFromUser();
-        if (language.equals(greekLanguage)) {
-            playerMove = englishLanguage.convertToEnglish(playerMove);
-            return CommandLineUI.stringToEnum(playerMove);
-        } else {
-            return CommandLineUI.stringToEnum(playerMove);
-        }
+        return CommandLineUI.stringToEnum(playerMove);
     }
 
     public void findWinner(Moves playerOneMove, Moves playerTwoMove, Language language) {

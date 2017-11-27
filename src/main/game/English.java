@@ -28,7 +28,7 @@ public class English implements Language {
         return (String.format("%s wins! 🙌 ", winningMove));
     }
 
-    public String convertToEnglish(String greekMove) {
+    public static String convertToEnglish(String greekMove) {
         HashMap<String, String> greekToEnglish = new HashMap<>();
         greekToEnglish.put("πέτρα", "rock");
         greekToEnglish.put("χαρτί", "paper");

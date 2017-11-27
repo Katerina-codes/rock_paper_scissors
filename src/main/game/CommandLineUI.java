@@ -38,12 +38,14 @@ public class CommandLineUI implements UI {
 
     public String getMoveFromUser() {
         String move = null;
+        String convertedMove = null;
         try {
             move = input.readLine();
+            convertedMove = English.convertToEnglish(move);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return move;
+        return convertedMove;
     }
 
     public static Moves stringToEnum(String playerMove) {
