@@ -3,7 +3,11 @@ package main.game;
 public class LanguageFactory {
     public English english;
 
-        public Object getLanguage(String languageDesired) {
+    public LanguageFactory() {
+        english = new English();
+    }
+
+    public Language getLanguage(String languageDesired) {
             return english;
         }
     }
