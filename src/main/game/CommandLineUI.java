@@ -6,6 +6,7 @@ import java.util.HashMap;
 import static main.game.Moves.*;
 
 public class CommandLineUI implements UI {
+    public static final String ENGLISH = "1";
     private final PrintStream output;
     private final BufferedReader input;
 
@@ -15,17 +16,20 @@ public class CommandLineUI implements UI {
     }
 
     public void askUserForLanguageSelection() {
-        output.println("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά");
+        output.println("Select your language:\nEnter '" + ENGLISH + "' for English\nΕισαγάγετε '2' για τα Ελληνικά");
     }
 
-    public String getLanguageSelection() {
-        String languageSelection = null;
+    public Language getLanguage() {
         try {
-            languageSelection = input.readLine();
+            String languageChoice = input.readLine();
+            if (languageChoice.equals(ENGLISH)) {
+                return new English();
+            } else {
+                return new Greek();
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return languageSelection;
     }
 
     public void askUserForGameMode(Language language) {

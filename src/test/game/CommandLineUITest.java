@@ -2,6 +2,7 @@ package test.game;
 
 import main.game.CommandLineUI;
 import main.game.English;
+import main.game.Greek;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,16 +33,25 @@ public class CommandLineUITest {
     public void askUserForLanguageSelection() {
         ui.askUserForLanguageSelection();
 
-        assertTrue(output.toString().contains("Select your language:\nEnter '1' for English\nΕισαγάγετε '2' για τα Ελληνικά"));
+        assertTrue(output.toString().contains("Select your language:\nEnter '" + CommandLineUI.ENGLISH + "' for English\nΕισαγάγετε '2' για τα Ελληνικά"));
     }
 
     @Test
-    public void getLanguageSelection() {
-       InputStream input = new ByteArrayInputStream("1".getBytes());
+    public void createsEnglishLanguage() {
+        InputStream input = new ByteArrayInputStream(CommandLineUI.ENGLISH.getBytes());
 
-       CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("1", ui.getLanguageSelection());
+        assertEquals(English.class, ui.getLanguage().getClass());
+    }
+
+    @Test
+    public void createsGreekLanguage() {
+        InputStream input = new ByteArrayInputStream("2".getBytes());
+
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+
+        assertEquals(Greek.class, ui.getLanguage().getClass());
     }
 
     @Test
@@ -52,7 +62,7 @@ public class CommandLineUITest {
     }
 
     @Test
-    public void getGameMove() {
+    public void getGameMode() {
         InputStream input = new ByteArrayInputStream("1".getBytes());
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);

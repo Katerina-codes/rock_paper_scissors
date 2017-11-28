@@ -36,24 +36,7 @@ public class GameTest {
     public void askUserForLanguageType() {
         newGame.getLanguageSelection();
 
-        assertTrue(inputOutput.askUserForLanguageSelectionWasCalled());
-    }
-
-    @Test
-    public void getLanguageSelectionFromUser() {
-        newGame.getLanguageSelection();
-
-        assertTrue(inputOutput.getLanguageSelectionWasCalled());
-    }
-
-    @Test
-    public void getEnglishLanguage() {
-        assertEquals(englishLanguage, newGame.selectLanguage("1"));
-    }
-
-    @Test
-    public void getGreekLanguage() {
-        assertEquals(greekLanguage, newGame.selectLanguage("2"));
+        assertTrue(inputOutput.getLanguageWasCalled());
     }
 
     @Test

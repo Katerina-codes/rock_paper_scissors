@@ -1,16 +1,23 @@
 package main.game;
 
 public class Game {
-    private final English englishLanguage;
-    private final Greek greekLanguage;
+    private Language language;
+    private Language englishLanguage;
+    private Language greekLanguage;
     private Rules rules;
     private UI inputOutput;
 
-    public Game(UI inputOutput, Rules rules, English englishLanguage, Greek greekLanguage) {
+    public Game(UI inputOutput, Rules rules, Language englishLanguage, Language greekLanguage) {
         this.inputOutput = inputOutput;
         this.rules = rules;
         this.englishLanguage = englishLanguage;
         this.greekLanguage = greekLanguage;
+    }
+
+    public Game(UI inputOutput, Rules rules, Language language) {
+        this.inputOutput = inputOutput;
+        this.rules = rules;
+        this.language = language;
     }
 
     public String getGameMode(Language language) {
@@ -19,9 +26,7 @@ public class Game {
     }
 
     public Language getLanguageSelection() {
-        inputOutput.askUserForLanguageSelection();
-        String userChoice = inputOutput.getLanguageSelection();
-        return selectLanguage(userChoice);
+        return inputOutput.getLanguage();
     }
 
     public void runGame(Language language, String gameMode) {
@@ -47,13 +52,5 @@ public class Game {
     public void findWinner(Moves playerOneMove, Moves playerTwoMove, Language language) {
         String winningMove = rules.scoreGame(playerOneMove, playerTwoMove);
            inputOutput.announceWinner(language, winningMove);
-    }
-
-    public Language selectLanguage(String userSelection) {
-        if (userSelection.equals("1")) {
-            return englishLanguage;
-        } else {
-            return greekLanguage;
-        }
     }
 }

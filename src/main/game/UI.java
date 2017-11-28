@@ -2,7 +2,7 @@ package main.game;
 
 public interface UI {
     public void askUserForLanguageSelection();
-    public String getLanguageSelection();
+    public Language getLanguage();
     public void askUserForGameMode(Language language);
     public String getGameMode();
     public void askForMove(Language player, String language);
