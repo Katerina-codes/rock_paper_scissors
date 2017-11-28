@@ -36,16 +36,18 @@ public class CommandLineUI implements UI {
         output.println(language.promptMove(player));
     }
 
-    public String getMoveFromUser() {
-        String move = null;
-        String convertedMove = null;
+    public String getMoveFromUser(String gameMode) {
+        String move = "";
         try {
             move = input.readLine();
-            convertedMove = English.convertToEnglish(move);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return convertedMove;
+        if (gameMode.equals("2")) {
+            return English.convertToEnglish(move);
+        } else {
+            return move;
+        }
     }
 
     public static Moves stringToEnum(String playerMove) {

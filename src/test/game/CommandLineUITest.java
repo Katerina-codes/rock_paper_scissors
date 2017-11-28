@@ -76,7 +76,7 @@ public class CommandLineUITest {
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("rock", ui.getMoveFromUser());
+        assertEquals("rock", ui.getMoveFromUser("1"));
     }
 
     @Test

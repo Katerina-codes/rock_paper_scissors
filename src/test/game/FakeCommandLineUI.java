@@ -42,7 +42,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public String getMoveFromUser() {
+    public String getMoveFromUser(String gameMode) {
         this.getMoveFromUserWasCalled = true;
         return "rock";
     }
