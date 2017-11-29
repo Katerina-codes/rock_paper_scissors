@@ -33,13 +33,6 @@ public class GameTest {
     }
 
     @Test
-    public void askUserForLanguageType() {
-        newGame.getLanguageSelection();
-
-        assertTrue(inputOutput.getLanguageWasCalled());
-    }
-
-    @Test
     public void askUserForGameMode() {
         newGame.getGameMode(englishLanguage);
 

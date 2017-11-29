@@ -25,10 +25,6 @@ public class Game {
         return inputOutput.getGameMode();
     }
 
-    public Language getLanguageSelection() {
-        return inputOutput.getLanguage();
-    }
-
     public void runGame(Language language, String gameMode) {
         Moves playerOneMove = getPlayerMove(language, language.playerOneType(), gameMode);
         Moves playerTwoMove = getPlayerTwoMove(language, gameMode);
