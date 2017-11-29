@@ -12,7 +12,6 @@ public class FakeCommandLineUI implements UI {
     private boolean getGameModeWasCalled = false;
     private boolean displayComputerMoveWasCalled = false;
     private boolean askUserForLanguageSelectionWasCalled = false;
-    private boolean getLanguageSelectionWasCalled = false;
     private boolean getLanguageWasCalled = false;
 
     @Override
@@ -56,6 +55,10 @@ public class FakeCommandLineUI implements UI {
     @Override
     public void displayComputerMove(String playerTwoMove) {
         this.displayComputerMoveWasCalled = true;
+    }
+
+    public boolean askUserForLanguageSelectionWasCalled() {
+        return askUserForLanguageSelectionWasCalled;
     }
 
     public boolean displayComputerMoveWasCalled() {
