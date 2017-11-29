@@ -20,6 +20,7 @@ public class CommandLineUI implements UI {
     }
 
     public Language getLanguage() {
+        askUserForLanguageSelection();
         try {
             String languageChoice = input.readLine();
             if (languageChoice.equals(ENGLISH)) {
