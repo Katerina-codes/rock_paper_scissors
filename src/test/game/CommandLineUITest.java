@@ -17,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CommandLineUITest {
 
+    public static final String GREEK = "2";
     private ByteArrayOutputStream output;
     private  InputStream input;
     private CommandLineUI ui;
@@ -48,7 +49,7 @@ public class CommandLineUITest {
 
     @Test
     public void createsGreekLanguage() {
-        InputStream input = new ByteArrayInputStream("2".getBytes());
+        InputStream input = new ByteArrayInputStream(GREEK.getBytes());
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
@@ -64,16 +65,16 @@ public class CommandLineUITest {
 
     @Test
     public void getGameMode() {
-        InputStream input = new ByteArrayInputStream("1".getBytes());
+        InputStream input = new ByteArrayInputStream(CommandLineUI.HUMAN_VS_HUMAN.getBytes());
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("1", ui.getGameMode());
+        assertEquals(CommandLineUI.HUMAN_VS_HUMAN, ui.getGameMode());
     }
 
     @Test
     public void testIfGameModeIsHumanVsHuman() {
-        assertEquals(true, ui.modeIsHumanVsHuman("1"));
+        assertEquals(true, ui.modeIsHumanVsHuman(CommandLineUI.HUMAN_VS_HUMAN));
     }
 
     @Test
