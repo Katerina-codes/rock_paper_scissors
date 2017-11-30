@@ -47,6 +47,13 @@ public class GameTest {
     }
 
     @Test
+    public void getsModeHumanVsHuman() {
+        newGame.getPlayerTwoMove(englishLanguage, "1");
+
+        assertTrue(inputOutput.modeIsHumanVsHumanWasCalled());
+    }
+
+    @Test
     public void userIsPromptedForInput() {
         newGame.runGame(englishLanguage, "1");
 

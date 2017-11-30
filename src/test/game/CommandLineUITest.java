@@ -3,6 +3,7 @@ package test.game;
 import main.game.CommandLineUI;
 import main.game.English;
 import main.game.Greek;
+import main.game.Language;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,6 +72,11 @@ public class CommandLineUITest {
     }
 
     @Test
+    public void testIfGameModeIsHumanVsHuman() {
+        assertEquals(true, ui.modeIsHumanVsHuman("1"));
+    }
+
+    @Test
     public void asksUserForMove() {
         ui.askForMove(englishLanguage,"Player one");
 
@@ -86,7 +92,17 @@ public class CommandLineUITest {
 
         CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
 
-        assertEquals("rock", ui.getMoveFromUser("1"));
+        assertEquals("rock", ui.getMoveFromUser(englishLanguage));
+    }
+
+    @Test
+    public void getsMoveFromUserWhenLanguageIsGreek() {
+        InputStream input = new ByteArrayInputStream("πέτρα".getBytes());
+
+        CommandLineUI ui = new CommandLineUI(new PrintStream(output), input);
+        Language greekLanguage = new Greek();
+
+        assertEquals("rock", ui.getMoveFromUser(greekLanguage));
     }
 
     @Test

@@ -32,7 +32,7 @@ public class Game {
     }
 
     public Moves getPlayerTwoMove(Language language, String gameMode) {
-        if (gameMode.equals("1")) {
+        if (inputOutput.modeIsHumanVsHuman(gameMode)) {
             return getPlayerMove(language, gameMode, gameMode);
         } else {
             return ComputerPlayer.playRandomMove();
@@ -41,7 +41,7 @@ public class Game {
 
     private Moves getPlayerMove(Language language, String playerNumber, String gameMode) {
         inputOutput.askForMove(language, playerNumber);
-        String playerMove = inputOutput.getMoveFromUser(gameMode);
+        String playerMove = inputOutput.getMoveFromUser(language);
         return CommandLineUI.stringToEnum(playerMove);
     }
 

@@ -13,6 +13,7 @@ public class FakeCommandLineUI implements UI {
     private boolean displayComputerMoveWasCalled = false;
     private boolean askUserForLanguageSelectionWasCalled = false;
     private boolean getLanguageWasCalled = false;
+    private boolean modeIsHumanVsHumanWasCalled = true;
 
     @Override
     public void askUserForLanguageSelection() {
@@ -42,7 +43,7 @@ public class FakeCommandLineUI implements UI {
     }
 
     @Override
-    public String getMoveFromUser(String gameMode) {
+    public String getMoveFromUser(Language gameMode) {
         this.getMoveFromUserWasCalled = true;
         return "rock";
     }
@@ -55,6 +56,16 @@ public class FakeCommandLineUI implements UI {
     @Override
     public void displayComputerMove(String playerTwoMove) {
         this.displayComputerMoveWasCalled = true;
+    }
+
+    @Override
+    public boolean modeIsHumanVsHuman(String gameMode) {
+        this.modeIsHumanVsHumanWasCalled = true;
+        return true;
+    }
+
+    public boolean modeIsHumanVsHumanWasCalled() {
+        return modeIsHumanVsHumanWasCalled;
     }
 
     public boolean askUserForLanguageSelectionWasCalled() {

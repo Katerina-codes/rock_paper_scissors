@@ -1,5 +1,6 @@
 package main.game;
 
+import javax.xml.transform.TransformerException;
 import java.io.*;
 import java.util.HashMap;
 
@@ -7,6 +8,7 @@ import static main.game.Moves.*;
 
 public class CommandLineUI implements UI {
     public static final String ENGLISH = "1";
+    public static final String HUMAN_VS_HUMAN = "1";
     private final PrintStream output;
     private final BufferedReader input;
 
@@ -37,19 +39,26 @@ public class CommandLineUI implements UI {
         output.println(language.promptMode());
     }
 
+    public boolean modeIsHumanVsHuman(String gameMode) {
+        return gameMode.equals(HUMAN_VS_HUMAN);
+    }
+
     public void askForMove(Language language, String player) {
         output.println(language.promptMove(player));
     }
 
-    public String getMoveFromUser(String gameMode) {
+    public String getMoveFromUser(Language languageChoice) {
         String move = "";
         try {
             move = input.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (gameMode.equals("2")) {
-            return English.convertToEnglish(move);
+
+        if (languageChoice instanceof Greek) {
+           return English.convertToEnglish(move);
+        } else if (languageChoice instanceof English) {
+            return move;
         } else {
             return move;
         }
